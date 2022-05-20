@@ -14,7 +14,6 @@ function register(event) {
     });
 
     const myHeaders = new Headers();
-    //myHeaders.append('Host', 'localhost');
 
     const requestOptions = {
         method: 'POST',
