@@ -12,3 +12,40 @@
   height: 15px;
   background-color: rgb(247, 134, 59);
 }
+
+#communities_container, #province_container {
+  display: grid;
+  place-items: center;
+  width: 900px;
+  height: 900px;
+}
+
+svg {
+  width: 612.91315px;
+  height: 543.61902px;
+}
+
+svg path {
+  fill: #DBD8D8;
+  stroke: white;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+
+#communities_container path:hover{
+  fill: #4D488C;
+  transition: 1s;
+  transform: translateX(-4px) scale(1.01, 1.01);
+  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
+}
+
+#province_container path:hover{
+  fill: #4D488C;
+  transition: 1s;
+  transform: translateX(-1px) scale(1.0001, 1.0001);
+  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
+}
+
+path {
+  transition: .5s;
+}
