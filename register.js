@@ -4,26 +4,29 @@ form.addEventListener('submit', register);
 
 function register(event) {
     event.preventDefault();
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        
-        var raw = JSON.stringify({
-          "name": "Hasan",
-          "email": "hasan@merce.com",
-          "password": "pass123",
-          "phone": "666666666"
-        });
-        
-        var requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: raw,
-          redirect: 'follow'
-        };
-        
-        fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/users/create.php", requestOptions)
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.log('error', error));
+    const inputs = document.querySelectorAll('input');
+    const url = 'https://mapped-backend-kdjbm.ondigitalocean.app/api/users/create.php';
+    const raw = JSON.stringify({
+        "name": `${inputs.item(0).value} ${inputs.item(1).value}`,
+        "email": inputs.item(2).value,
+        "password": inputs.item(3).value,
+        "phone": inputs.item(4).value
+    });
+
+    const myHeaders = new Headers();
+    //myHeaders.append('Host', 'localhost');
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    console.log(inputs);
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
 }
