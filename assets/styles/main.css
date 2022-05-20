@@ -11964,29 +11964,68 @@ fieldset:disabled .btn {
   padding: 0;
 }
 
+.bold-title {
+  font-weight: 600;
+}
+
+.regular-text {
+  font-weight: 400;
+}
+
+.light-text {
+  font-weight: 200;
+}
+
 .top-bar {
   height: 15px;
-  background-color: #f7863b;
+  background-color: #F47458;
 }
 
-#communities_container, #province_container {
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-  width: 900px;
-  height: 900px;
+.indigo-bg-dk {
+  background-color: #1A192D;
 }
 
-svg {
-  width: 612.91315px;
-  height: 543.61902px;
+.indigo-bg {
+  background-color: #4D488C;
 }
 
-svg path {
-  fill: #DBD8D8;
-  stroke: white;
-  stroke-width: 1px;
-  cursor: pointer;
+.orang-bg {
+  background-color: #F47458;
+}
+
+.orang-cl {
+  color: #F47458;
+}
+
+.link-none {
+  text-decoration: none;
+}
+
+.rounded-30 {
+  border-radius: 30px;
+}
+
+.hotel-bg {
+  background-image: url(../img/hotel-1.jpg);
+  background-size: cover;
+}
+
+.register-bg {
+  background-image: url(../img/login.jpg);
+  background-size: cover;
+}
+
+.br-btm {
+  border-bottom: #ebeaea 1px solid;
+}
+
+.radius-none {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.card-height {
+  height: 500px;
 }
 
 #communities_container path:hover {

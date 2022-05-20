@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <title>Mapped</title>
+</head>
+<body>
+    <!-- Nav bar-->
+    <nav class="navbar navbar-expand-md navbar-light br-btm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./assets/img/logo.png"></a>
+            <button type="button" class="navbar-toggler">
+               <span class="navbar-toggler-icon" ></span>
+            </button>
+            <div id="navMenu" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-md-auto">
+                    <li  class="nav-item"><a id="user_name" class="nav-link" href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid mt-5">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="bold-title">Nombre</td>
+            <td id="lname">Thornton</td>
+          </tr>
+          <tr>
+            <td class="bold-title">Apellidos</td>
+            <td id="fname">Jacob</td>
+          </tr>
+          <tr>
+            <td class="bold-title">Email</td>
+            <td id="email">@fat</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+    function getUserNameById (id){
+      const url = 'https://mapped-backend-kdjbm.ondigitalocean.app/api/users/read_by_id.php/?user_id='+id; 
+    fetch(url)
+    .then(response => response.json())
+    .then(data => { 
+      const userName = data.token;
+      document.querySelector('#user_name').innerHTML= userName;
+      console.log(data.name);
+    })
+    .catch(err => console.log(err))
+   }
+   getUserNameById(14);
+   
+    </script>
+</body>
+</html>
