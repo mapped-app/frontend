@@ -12013,4 +12013,11 @@ path {
   -webkit-transition: .5s;
   transition: .5s;
 }
+
+footer {
+  background-color: #DBD8D8;
+  width: 100%;
+  height: 150px;
+  border-radius: 40px 40px 0px 0px;
+}
 /*# sourceMappingURL=main.css.map */
