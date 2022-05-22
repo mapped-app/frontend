@@ -11967,16 +11967,16 @@ fieldset:disabled .btn {
 }
 
 main {
-  margin: 50px;
+  padding: 50px;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." ". site site ." ". . . ." ". stays stays ." ". . . ." ". destiny destiny ." ". . . .";
-  -ms-grid-columns: 200px auto auto 200px;
-      grid-template-columns: 200px auto auto 200px;
+      grid-template-areas: "title title title title title" ". . . . ." "map . site . stays" "map . . . ." "map . destiny . rate";
+  -ms-grid-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
+      grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
   /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
-  -ms-grid-rows: auto 0px 600px 20px 300px 20px 300px 20px 300px;
-      grid-template-rows: auto 0px 600px 20px 300px 20px 300px 20px 300px;
-  gap: 1em;
+  -ms-grid-rows: auto 0px 250px 10px 250px;
+      grid-template-rows: auto 0px 250px 10px 250px;
+  gap: .5em;
 }
 
 @media all and (max-width: 1150px) {
@@ -11984,10 +11984,11 @@ main {
     margin: 20px;
     display: -ms-grid;
     display: grid;
+        grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." ". site site ." ". . . ." ". stays stays ." ". . . ." ". destiny destiny ." ". . . ." ". rate rate .";
     -ms-grid-columns: 140px auto auto 140px;
         grid-template-columns: 140px auto auto 140px;
-    -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
-        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+    -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
     gap: 1em;
   }
 }
@@ -12010,43 +12011,40 @@ main {
     margin: 20px;
     display: -ms-grid;
     display: grid;
-        grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." "site site site site" ". . . ." "stays stays stays stays" ". . . ." "destiny destiny destiny destiny" ". . . .";
+        grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." "site site site site" ". . . ." "stays stays stays stays" ". . . ." "destiny destiny destiny destiny" ". . . ." "rate rate rate rate";
     -ms-grid-columns: 50px auto auto 50px;
         grid-template-columns: 50px auto auto 50px;
-    -ms-grid-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px;
-        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px;
+    -ms-grid-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
+        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
     gap: 0.5em;
   }
 }
 
-@media all and (max-width: 500px) {
+@media (max-width: 500px) {
   main {
-    margin: 20px;
+    margin: 5px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
-    -ms-grid-rows: auto 10px 400px 40px 300px 40px 300px 40px 300px;
-        grid-template-rows: auto 10px 400px 40px 300px 40px 300px 40px 300px;
+    -ms-grid-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
+        grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
     gap: 0.5em;
   }
 }
 
-/*.container {
-    border: 2px solid red;
-}*/
 .title {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
+  -ms-grid-column-span: 5;
   grid-area: title;
   border-bottom: 3px solid #4D488C;
 }
 
 .map {
   -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
   grid-area: map;
   border: 2px solid red;
   display: -ms-grid;
@@ -12055,24 +12053,27 @@ main {
 }
 
 .stays {
-  -ms-grid-row: 7;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
   grid-area: stays;
 }
 
 .sites {
-  -ms-grid-row: 5;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
   grid-area: site;
 }
 
 .destiny {
-  -ms-grid-row: 9;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
   grid-area: destiny;
+}
+
+.rate {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  grid-area: rate;
 }
 
 .data {
