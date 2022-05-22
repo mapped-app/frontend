@@ -9,36 +9,44 @@
     box-sizing: border-box;
 }
 
+
 main {
-    margin: 50px;
+    padding: 50px;
     display: grid;
     grid-template-areas:
-        "title title title title"
-        ". . . ."
-        "map map map map"
-        ". . . ."
-        ". site site ."
-        ". . . ."
-        ". stays stays ."
-        ". . . ."
-        ". destiny destiny ."
-        ". . . ."
+        "title title title title title"
+        ". . . . ."
+        "map . site . stays"
+        "map . . . ."
+        "map . destiny . rate"
     ;
-    grid-template-columns: 200px auto auto 200px;
+    grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
     /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
-    grid-template-rows: auto 0px 600px 20px 300px 20px 300px 20px 300px;
-    gap: 1em;
+    grid-template-rows: auto 0px 250px 10px 250px;
+    gap: .5em;
 }
 
 @media all and (max-width: 1150px) {
     main {
         margin: 20px;
         display: grid;
+        grid-template-areas:
+            "title title title title"
+            ". . . ."
+            "map map map map"
+            ". . . ."
+            ". site site ."
+            ". . . ."
+            ". stays stays ."
+            ". . . ."
+            ". destiny destiny ."
+            ". . . ."
+            ". rate rate ."
+        ;
         grid-template-columns: 140px auto auto 140px;
-        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
         gap: 1em;
     }
-
 }
 
 @media all and (max-width: 900px) {
@@ -55,7 +63,6 @@ main {
 
 
 @media all and (max-width: 700px) {
-
     main {
         margin: 20px;
         display: grid;
@@ -70,29 +77,24 @@ main {
             ". . . ."
             "destiny destiny destiny destiny"
             ". . . ."
+            "rate rate rate rate"
         ;
         grid-template-columns: 50px auto auto 50px;
-        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px;
+        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
         gap: 0.5em;
     }
 
 }
 
-@media all and (max-width: 500px) {
-
+@media (max-width: 500px) {
     main {
-        margin: 20px;
+        margin: 5px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto 10px 400px 40px 300px 40px 300px 40px 300px;
+        grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
         gap: 0.5em;
     }
-
 }
-
-/*.container {
-    border: 2px solid red;
-}*/
 
 .title {
     grid-area: title;
@@ -118,6 +120,10 @@ main {
     grid-area: destiny;
 }
 
+.rate {
+    grid-area: rate;
+}
+
 .data {
     border-radius: 30px;
     padding: 15px;
@@ -127,33 +133,33 @@ main {
 /* MAP STYLES*/
 
 .top-bar {
-  height: 15px;
-  background-color: rgb(247, 134, 59);
+    height: 15px;
+    background-color: rgb(247, 134, 59);
 }
 
 svg path {
-  fill: #DBD8D8;
-  stroke: white;
-  stroke-width: 1px;
-  cursor: pointer;
+    fill: #DBD8D8;
+    stroke: white;
+    stroke-width: 1px;
+    cursor: pointer;
 }
 
-.map path:hover{
-  fill: #4D488C;
-  transition: 1s;
-  transform: translateX(-4px) scale(1.01, 1.01);
-  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
+.map path:hover {
+    fill: #4D488C;
+    transition: 1s;
+    transform: translateX(-4px) scale(1.01, 1.01);
+    filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
 }
 
 path {
-  transition: .5s;
+    transition: .5s;
 }
 
 footer {
-  background-color: #DBD8D8;
-  width: 100%;
-  height: 150px;
-  border-radius: 40px 40px 0px 0px;
+    background-color: #DBD8D8;
+    width: 100%;
+    height: 150px;
+    border-radius: 40px 40px 0px 0px;
 }
 
 svg {
