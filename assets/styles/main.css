@@ -11962,24 +11962,130 @@ fieldset:disabled .btn {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.top-bar {
-  height: 15px;
-  background-color: #f7863b;
+main {
+  margin: 50px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." ". site site ." ". . . ." ". stays stays ." ". . . ." ". destiny destiny ." ". . . .";
+  -ms-grid-columns: 200px auto auto 200px;
+      grid-template-columns: 200px auto auto 200px;
+  /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
+  -ms-grid-rows: auto 0px 600px 20px 300px 20px 300px 20px 300px;
+      grid-template-rows: auto 0px 600px 20px 300px 20px 300px 20px 300px;
+  gap: 1em;
 }
 
-#communities_container, #province_container {
+@media all and (max-width: 1150px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 140px auto auto 140px;
+        grid-template-columns: 140px auto auto 140px;
+    -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+    gap: 1em;
+  }
+}
+
+@media all and (max-width: 900px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100px auto auto 100px;
+        grid-template-columns: 100px auto auto 100px;
+    -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+    gap: 0.5em;
+  }
+}
+
+@media all and (max-width: 700px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." "site site site site" ". . . ." "stays stays stays stays" ". . . ." "destiny destiny destiny destiny" ". . . .";
+    -ms-grid-columns: 50px auto auto 50px;
+        grid-template-columns: 50px auto auto 50px;
+    -ms-grid-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px;
+        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px;
+    gap: 0.5em;
+  }
+}
+
+@media all and (max-width: 500px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: auto 10px 400px 40px 300px 40px 300px 40px 300px;
+        grid-template-rows: auto 10px 400px 40px 300px 40px 300px 40px 300px;
+    gap: 0.5em;
+  }
+}
+
+/*.container {
+    border: 2px solid red;
+}*/
+.title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: title;
+  border-bottom: 3px solid #4D488C;
+}
+
+.map {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: map;
+  border: 2px solid red;
   display: -ms-grid;
   display: grid;
   place-items: center;
-  width: 900px;
-  height: 900px;
 }
 
-svg {
-  width: 612.91315px;
-  height: 543.61902px;
+.stays {
+  -ms-grid-row: 7;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: stays;
+}
+
+.sites {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: site;
+}
+
+.destiny {
+  -ms-grid-row: 9;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: destiny;
+}
+
+.data {
+  border-radius: 30px;
+  padding: 15px;
+  -webkit-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+          box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* MAP STYLES*/
+.top-bar {
+  height: 15px;
+  background-color: #f7863b;
 }
 
 svg path {
@@ -11989,22 +12095,12 @@ svg path {
   cursor: pointer;
 }
 
-#communities_container path:hover {
+.map path:hover {
   fill: #4D488C;
   -webkit-transition: 1s;
   transition: 1s;
   -webkit-transform: translateX(-4px) scale(1.01, 1.01);
           transform: translateX(-4px) scale(1.01, 1.01);
-  -webkit-filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-          filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-}
-
-#province_container path:hover {
-  fill: #4D488C;
-  -webkit-transition: 1s;
-  transition: 1s;
-  -webkit-transform: translateX(-1px) scale(1.0001, 1.0001);
-          transform: translateX(-1px) scale(1.0001, 1.0001);
   -webkit-filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
           filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
 }
@@ -12019,5 +12115,49 @@ footer {
   width: 100%;
   height: 150px;
   border-radius: 40px 40px 0px 0px;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* TRANSITIONS */
+ul {
+  display: none;
+}
+
+.transition-fade {
+  opacity: 1;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+  opacity: 1;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.transition-swipe {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+html.is-animating .transition-swipe {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 /*# sourceMappingURL=main.css.map */
