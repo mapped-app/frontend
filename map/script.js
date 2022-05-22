@@ -9,14 +9,14 @@ const openCommunity = (event) => {
 }
 
 const communityEvents = () => {
-    const communitiesEl = document.querySelector('#communities_container');
+    const communitiesEl = document.querySelector('.map');
     communitiesEl?.addEventListener('click', openCommunity);
 }
 
 
 
 const removeCommunityEvents = () => {
-    const communitiesEl = document.querySelector('#communities_container');
+    const communitiesEl = document.querySelector('.map');
     communitiesEl?.removeEventListener('click', openCommunity);
 }
 

@@ -3,26 +3,132 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,400&display=swap');
 
 * {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+main {
+    margin: 50px;
+    display: grid;
+    grid-template-areas:
+        "title title title title"
+        ". . . ."
+        "map map map map"
+        ". . . ."
+        ". site site ."
+        ". . . ."
+        ". stays stays ."
+        ". . . ."
+        ". destiny destiny ."
+        ". . . ."
+    ;
+    grid-template-columns: 200px auto auto 200px;
+    /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
+    grid-template-rows: auto 0px 600px 20px 300px 20px 300px 20px 300px;
+    gap: 1em;
+}
+
+@media all and (max-width: 1150px) {
+    main {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: 140px auto auto 140px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+        gap: 1em;
+    }
+
+}
+
+@media all and (max-width: 900px) {
+    main {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: 100px auto auto 100px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+        gap: 0.5em;
+    }
+
+}
+
+
+
+@media all and (max-width: 700px) {
+
+    main {
+        margin: 20px;
+        display: grid;
+        grid-template-areas:
+            "title title title title"
+            ". . . ."
+            "map map map map"
+            ". . . ."
+            "site site site site"
+            ". . . ."
+            "stays stays stays stays"
+            ". . . ."
+            "destiny destiny destiny destiny"
+            ". . . ."
+        ;
+        grid-template-columns: 50px auto auto 50px;
+        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px;
+        gap: 0.5em;
+    }
+
+}
+
+@media all and (max-width: 500px) {
+
+    main {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto 10px 400px 40px 300px 40px 300px 40px 300px;
+        gap: 0.5em;
+    }
+
+}
+
+/*.container {
+    border: 2px solid red;
+}*/
+
+.title {
+    grid-area: title;
+    border-bottom: 3px solid #4D488C;
+}
+
+.map {
+    grid-area: map;
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+}
+
+.stays {
+    grid-area: stays;
+}
+
+.sites {
+    grid-area: site;
+}
+
+.destiny {
+    grid-area: destiny;
+}
+
+.data {
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* MAP STYLES*/
 
 .top-bar {
   height: 15px;
   background-color: rgb(247, 134, 59);
-}
-
-#communities_container, #province_container {
-  display: grid;
-  place-items: center;
-  width: 900px;
-  height: 900px;
-}
-
-svg {
-  width: 612.91315px;
-  height: 543.61902px;
 }
 
 svg path {
@@ -32,17 +138,10 @@ svg path {
   cursor: pointer;
 }
 
-#communities_container path:hover{
+.map path:hover{
   fill: #4D488C;
   transition: 1s;
   transform: translateX(-4px) scale(1.01, 1.01);
-  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-}
-
-#province_container path:hover{
-  fill: #4D488C;
-  transition: 1s;
-  transform: translateX(-1px) scale(1.0001, 1.0001);
   filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
 }
 
@@ -55,4 +154,44 @@ footer {
   width: 100%;
   height: 150px;
   border-radius: 40px 40px 0px 0px;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* TRANSITIONS */
+
+ul {
+    display: none;
+}
+
+.transition-fade {
+    opacity: 1;
+    transition: .5s;
+    transform: translateX(0);
+    transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+
+.transition-swipe {
+
+    transition: .5s;
+    transform: translateY(0);
+}
+
+html.is-animating .transition-swipe {
+
+    transform: translateY(100%);
 }
