@@ -1,5 +1,7 @@
-const swup = new Swup();
+import { Mapped } from './user.js';
 
+const swup = new Swup();
+window.mapped = new Mapped();
 
 const openCommunity = (event) => {
     if (event.target.tagName === 'path') {
@@ -12,7 +14,6 @@ const communityEvents = () => {
     const communitiesEl = document.querySelector('.map');
     communitiesEl?.addEventListener('click', openCommunity);
 }
-
 
 
 const removeCommunityEvents = () => {
