@@ -11966,6 +11966,31 @@ fieldset:disabled .btn {
           box-sizing: border-box;
 }
 
+<<<<<<< HEAD
+.bold-title {
+  font-weight: 600;
+}
+
+.regular-text {
+  font-weight: 400;
+}
+
+.light-text {
+  font-weight: 200;
+}
+
+.top-bar {
+  height: 15px;
+  background-color: #F47458;
+}
+
+.indigo-bg-dk {
+  background-color: #1A192D;
+}
+
+.indigo-bg {
+  background-color: #4D488C;
+=======
 main {
   margin: 50px;
   display: -ms-grid;
@@ -12153,13 +12178,64 @@ button {
 .top-bar {
   height: 15px;
   background-color: #f7863b;
+>>>>>>> fbdcfb4a790927b554e6f628aaa6eccd4503ae58
 }
 
-svg path {
-  fill: #DBD8D8;
-  stroke: white;
-  stroke-width: 1px;
-  cursor: pointer;
+.orang-bg {
+  background-color: #F47458;
+}
+
+.orang-cl {
+  color: #F47458;
+}
+
+.link-none {
+  text-decoration: none;
+}
+
+.rounded-30 {
+  border-radius: 30px;
+}
+
+.hotel-bg {
+  background-image: url(../img/hotel-1.jpg);
+  background-size: cover;
+}
+
+.register-bg {
+  background-image: url(../img/login.jpg);
+  background-size: cover;
+}
+
+.br-btm {
+  border-bottom: #ebeaea 1px solid;
+}
+
+.radius-none-right {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.radius-none-left {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.radius-none-bottom {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.mg-top-none {
+  margin-top: 0px;
+}
+
+.card-height {
+  height: 500px;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .map path:hover {
