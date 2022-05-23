@@ -73,7 +73,17 @@ function isUserCreated(result) {
             'phone': result.phone
         }
         console.log(userData);
+        addSessionUser(result);
         return location.pathname = '/map/community.html';
     }
     error.innerHTML = "<span style='color: red;'>El correo electronico ya existe, prueba otro</span>";
+}
+
+function addSessionUser(userData) {
+    try {
+        sessionStorage.setItem('id', userData.user_id);
+        sessionStorage.setItem('name', userData.name);
+        sessionStorage.setItem('token', userData.token);
+        sessionStorage.setItem('email', userData.email);
+    } catch (error) { console.log(error) }
 }
