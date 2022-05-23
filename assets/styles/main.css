@@ -12019,13 +12019,31 @@ fieldset:disabled .btn {
   border-bottom: #ebeaea 1px solid;
 }
 
-.radius-none {
+.radius-none-right {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
+.radius-none-left {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.radius-none-bottom {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.mg-top-none {
+  margin-top: 0px;
+}
+
 .card-height {
   height: 500px;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 #communities_container path:hover {
