@@ -11967,16 +11967,41 @@ fieldset:disabled .btn {
 }
 
 main {
-  padding: 50px;
+  margin: 50px;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "title title title title title" ". . . . ." "map . site . stays" "map . . . ." "map . destiny . rate";
+      grid-template-areas: "title title title title title" ". . . . ." "map . site . stays" "map . . . ." "map . destiny . rate" "map . . . .";
   -ms-grid-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
       grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
   /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
   -ms-grid-rows: auto 0px 250px 10px 250px;
       grid-template-rows: auto 0px 250px 10px 250px;
   gap: .5em;
+}
+
+.btns {
+  position: absolute;
+  top: 85%;
+  left: 55%;
+  width: auto;
+}
+
+button {
+  margin-left: 10px;
+  width: 90px;
+  border-radius: 15px;
+}
+
+@media all and (max-width: 1280px) {
+  .btns {
+    left: 45%;
+  }
+}
+
+@media all and (max-width: 1190px) {
+  .btns {
+    left: 40%;
+  }
 }
 
 @media all and (max-width: 1150px) {
@@ -11991,6 +12016,10 @@ main {
         grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
     gap: 1em;
   }
+  .btns {
+    top: 85%;
+    left: 65%;
+  }
 }
 
 @media all and (max-width: 900px) {
@@ -12003,6 +12032,9 @@ main {
     -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
         grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
     gap: 0.5em;
+  }
+  .btns {
+    left: 55%;
   }
 }
 
@@ -12018,6 +12050,16 @@ main {
         grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
     gap: 0.5em;
   }
+  .btns {
+    left: 50%;
+  }
+  button {
+    width: 70px;
+    margin-left: 0;
+  }
+  historyBtn {
+    margin-left: 5px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -12031,6 +12073,19 @@ main {
         grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
     gap: 0.5em;
   }
+  .btns {
+    left: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .btns {
+    left: 20%;
+  }
+  button {
+    width: 70px;
+    margin-left: 5px;
+  }
 }
 
 .title {
@@ -12043,13 +12098,13 @@ main {
 
 .map {
   -ms-grid-row: 3;
-  -ms-grid-row-span: 3;
+  -ms-grid-row-span: 4;
   -ms-grid-column: 1;
   grid-area: map;
-  border: 2px solid red;
   display: -ms-grid;
   display: grid;
   place-items: center;
+  position: relative;
 }
 
 .stays {
@@ -12074,6 +12129,17 @@ main {
   -ms-grid-row: 5;
   -ms-grid-column: 5;
   grid-area: rate;
+}
+
+.markBtn {
+  background-color: #4D488C;
+  color: white;
+}
+
+.historyBtn {
+  background-color: white;
+  color: #F47458;
+  border-color: #F47458;
 }
 
 .data {
