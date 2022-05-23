@@ -8,8 +8,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
- 
+
 .bold-title {
   font-weight: 600 ;
 }
@@ -77,7 +76,7 @@
 
 .text-align-center {
   text-align:center;
-=======
+}
 
 main {
     margin: 50px;
@@ -191,7 +190,7 @@ button {
         width: 70px;
         margin-left: 0;
     }
-    historyBtn {
+    .historyBtn {
         margin-left: 5px;
     }
 }
@@ -278,7 +277,6 @@ svg path {
     stroke: white;
     stroke-width: 1px;
     cursor: pointer;
->>>>>>> fbdcfb4a790927b554e6f628aaa6eccd4503ae58
 }
 
 .map path:hover {
@@ -289,10 +287,6 @@ svg path {
 }
 
 path {
-<<<<<<< HEAD
-  transition: .5s;
-}
-=======
     transition: .5s;
 }
 
@@ -342,4 +336,3 @@ html.is-animating .transition-swipe {
 
     transform: translateY(100%);
 }
->>>>>>> fbdcfb4a790927b554e6f628aaa6eccd4503ae58
