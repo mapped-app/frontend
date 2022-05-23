@@ -65,7 +65,6 @@ function validPassword(password, passwordConfirm) {
 
 function isUserCreated(result) {
     if (result.status === 'success') {
-        error.innerHTML = "<span style='color: green;'>Usuario creado con exito</span>";
         userData = {
             'user_id': result.user_id,
             'token': result.token,
@@ -74,7 +73,7 @@ function isUserCreated(result) {
             'phone': result.phone
         }
         console.log(userData);
-        return;
+        return location.pathname = '/map/community.html';
     }
     error.innerHTML = "<span style='color: red;'>El correo electronico ya existe, prueba otro</span>";
 }
