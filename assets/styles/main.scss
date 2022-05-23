@@ -102,7 +102,7 @@ main {
     width: auto;
 }
 
-button {
+.historyBtn, .markBtn {
     margin-left: 10px;
     width: 90px;
     border-radius: 15px;
@@ -186,7 +186,7 @@ button {
     .btns {
         left: 50%;
     }
-    button {
+    .historyBtn, .markBtn {
         width: 70px;
         margin-left: 0;
     }
@@ -213,7 +213,7 @@ button {
     .btns {
         left: 20%;
     }
-    button {
+    .historyBtn, .markBtn {
         width: 70px;
         margin-left: 5px;
     }
