@@ -11962,8 +11962,11 @@ fieldset:disabled .btn {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .bold-title {
   font-weight: 600;
 }
@@ -11987,6 +11990,195 @@ fieldset:disabled .btn {
 
 .indigo-bg {
   background-color: #4D488C;
+=======
+main {
+  margin: 50px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "title title title title title" ". . . . ." "map . site . stays" "map . . . ." "map . destiny . rate" "map . . . .";
+  -ms-grid-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
+      grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
+  /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
+  -ms-grid-rows: auto 0px 250px 10px 250px;
+      grid-template-rows: auto 0px 250px 10px 250px;
+  gap: .5em;
+}
+
+.btns {
+  position: absolute;
+  top: 85%;
+  left: 55%;
+  width: auto;
+}
+
+button {
+  margin-left: 10px;
+  width: 90px;
+  border-radius: 15px;
+}
+
+@media all and (max-width: 1280px) {
+  .btns {
+    left: 45%;
+  }
+}
+
+@media all and (max-width: 1190px) {
+  .btns {
+    left: 40%;
+  }
+}
+
+@media all and (max-width: 1150px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." ". site site ." ". . . ." ". stays stays ." ". . . ." ". destiny destiny ." ". . . ." ". rate rate .";
+    -ms-grid-columns: 140px auto auto 140px;
+        grid-template-columns: 140px auto auto 140px;
+    -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
+    gap: 1em;
+  }
+  .btns {
+    top: 85%;
+    left: 65%;
+  }
+}
+
+@media all and (max-width: 900px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100px auto auto 100px;
+        grid-template-columns: 100px auto auto 100px;
+    -ms-grid-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+    gap: 0.5em;
+  }
+  .btns {
+    left: 55%;
+  }
+}
+
+@media all and (max-width: 700px) {
+  main {
+    margin: 20px;
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." "site site site site" ". . . ." "stays stays stays stays" ". . . ." "destiny destiny destiny destiny" ". . . ." "rate rate rate rate";
+    -ms-grid-columns: 50px auto auto 50px;
+        grid-template-columns: 50px auto auto 50px;
+    -ms-grid-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
+        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
+    gap: 0.5em;
+  }
+  .btns {
+    left: 50%;
+  }
+  button {
+    width: 70px;
+    margin-left: 0;
+  }
+  historyBtn {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    margin: 5px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
+        grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
+    gap: 0.5em;
+  }
+  .btns {
+    left: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .btns {
+    left: 20%;
+  }
+  button {
+    width: 70px;
+    margin-left: 5px;
+  }
+}
+
+.title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: title;
+  border-bottom: 3px solid #4D488C;
+}
+
+.map {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 1;
+  grid-area: map;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.stays {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: stays;
+}
+
+.sites {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: site;
+}
+
+.destiny {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: destiny;
+}
+
+.rate {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  grid-area: rate;
+}
+
+.markBtn {
+  background-color: #4D488C;
+  color: white;
+}
+
+.historyBtn {
+  background-color: white;
+  color: #F47458;
+  border-color: #F47458;
+}
+
+.data {
+  border-radius: 30px;
+  padding: 15px;
+  -webkit-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+          box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* MAP STYLES*/
+.top-bar {
+  height: 15px;
+  background-color: #f7863b;
+>>>>>>> fbdcfb4a790927b554e6f628aaa6eccd4503ae58
 }
 
 .orang-bg {
@@ -12046,7 +12238,7 @@ fieldset:disabled .btn {
   text-align: center;
 }
 
-#communities_container path:hover {
+.map path:hover {
   fill: #4D488C;
   -webkit-transition: 1s;
   transition: 1s;
@@ -12056,18 +12248,59 @@ fieldset:disabled .btn {
           filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
 }
 
-#province_container path:hover {
-  fill: #4D488C;
-  -webkit-transition: 1s;
-  transition: 1s;
-  -webkit-transform: translateX(-1px) scale(1.0001, 1.0001);
-          transform: translateX(-1px) scale(1.0001, 1.0001);
-  -webkit-filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-          filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-}
-
 path {
   -webkit-transition: .5s;
   transition: .5s;
+}
+
+footer {
+  background-color: #DBD8D8;
+  width: 100%;
+  height: 150px;
+  border-radius: 40px 40px 0px 0px;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* TRANSITIONS */
+ul {
+  display: none;
+}
+
+.transition-fade {
+  opacity: 1;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+  opacity: 1;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.transition-swipe {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+html.is-animating .transition-swipe {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 /*# sourceMappingURL=main.css.map */
