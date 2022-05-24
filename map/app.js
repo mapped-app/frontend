@@ -1,12 +1,24 @@
 import { Mapped } from './mapped.js';
+import { changeLocation } from './src/add-data';
 
 const swup = new Swup();
 window.mapped = new Mapped();
 
+(function removeSessionUser() {
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('email');
+})();
+
 const openCommunity = (event) => {
     if (event.target.tagName === 'path') {
         const links = [...document.querySelectorAll('nav a')];
-        links.find(link => link.id === event.target.id)?.click();
+        const place = links.find(link => link.id === event.target.id);
+        if (place) {
+            changeLocation();
+            place.click();
+        }
     }
 }
 
