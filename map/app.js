@@ -1,5 +1,5 @@
 import { Mapped } from './mapped.js';
-import { changeLocation } from './src/add-data';
+import { changeLocation } from './src/add-data.js';
 
 const swup = new Swup();
 window.mapped = new Mapped();
