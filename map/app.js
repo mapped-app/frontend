@@ -16,7 +16,7 @@ const openCommunity = (event) => {
         const links = [...document.querySelectorAll('nav a')];
         const place = links.find(link => link.id === event.target.id);
         if (place) {
-            changeLocation();
+            changeLocation(window.mapped, place);
             place.click();
         }
     }
