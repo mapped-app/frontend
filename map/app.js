@@ -5,13 +5,6 @@ function setMappedData() {
     window.mapped = new Mapped();
 }
 
-(function removeSessionUser() {
-    sessionStorage.removeItem('id');
-    sessionStorage.removeItem('name');
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('email');
-})();
-
 const openCommunity = (event) => {
     if (event.target.tagName === 'path') {
         const links = [...document.querySelectorAll('nav a')];
