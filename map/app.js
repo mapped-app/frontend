@@ -1,32 +1,52 @@
-import * as province from './assets/svg_codes.js';
+import { Mapped } from './mapped.js';
 
-const communitiesEl = document.querySelector('#communities_container');
-const provinceEl = document.querySelector('#province_container');
-const backBtn = document.querySelector('button#back');
+const swup = new Swup();
+window.mapped = new Mapped();
 
 const openCommunity = (event) => {
     if (event.target.tagName === 'path') {
-        communitiesEl.className = 'd-none';
-        const idRegExp = new RegExp(event.target.id, 'i');
-        const findedProvince = Object.values(province).find((svg) => { 
-            return idRegExp.test(svg);
-        })
-        provinceEl.innerHTML = findedProvince;
-        provinceEl.removeAttribute('class');
-        backBtn.removeAttribute('class');
+        const links = [...document.querySelectorAll('nav a')];
+        links.find(link => link.id === event.target.id)?.click();
     }
 }
 
-const backToCommunities = () => {
-    provinceEl.className = 'd-none';
-    backBtn.className = 'd-none';
-    communitiesEl.removeAttribute('class');
+const communityEvents = () => {
+    const communitiesEl = document.querySelector('.map');
+    communitiesEl?.addEventListener('click', openCommunity);
 }
 
-communitiesEl.addEventListener('click', openCommunity);
-backBtn.addEventListener('click', backToCommunities);
+
+const removeCommunityEvents = () => {
+    const communitiesEl = document.querySelector('.map');
+    communitiesEl?.removeEventListener('click', openCommunity);
+}
+
+const buttonBackClick = () => document.querySelector('a#ES')?.click();
+
+const buttonEvents = () => {
+    const backBtn = document.querySelector('button#back');
+    backBtn?.addEventListener('click', buttonBackClick);
+}
+
+const removeButtonEvents = () => {
+    const backBtn = document.querySelector('button#back');
+    backBtn?.removeEventListener('click', buttonBackClick);
+}
 
 
+const mount = () => {
+    communityEvents();
+    buttonEvents();
+}
+
+const unmount = () => {
+    //removeCommunityEvents();
+    removeButtonEvents();
+}
 
 
+mount();
 
+swup.on('willReplaceContent', unmount);
+
+swup.on('contentReplaced', mount);
