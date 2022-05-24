@@ -12,11 +12,11 @@ class Mapped {
     }
 
     get userId() {
-        return window.sessionStorage.user_id;
+        return window.sessionStorage.id;
     }
 
     get userName() {
-        return window.sessionStorage.user;
+        return window.sessionStorage.name;
     }
 
     get userToken() {
