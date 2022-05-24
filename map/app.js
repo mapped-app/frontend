@@ -1,8 +1,9 @@
 import { Mapped } from './mapped.js';
-import { changeLocation } from './src/add-data.js';
 
 const swup = new Swup();
-window.mapped = new Mapped();
+function setMappedData() {
+    window.mapped = new Mapped();
+}
 
 (function removeSessionUser() {
     sessionStorage.removeItem('id');
@@ -14,11 +15,7 @@ window.mapped = new Mapped();
 const openCommunity = (event) => {
     if (event.target.tagName === 'path') {
         const links = [...document.querySelectorAll('nav a')];
-        const place = links.find(link => link.id === event.target.id);
-        if (place) {
-            changeLocation(window.mapped, place);
-            place.click();
-        }
+        links.find(link => link.id === event.target.id)?.click();
     }
 }
 
@@ -49,6 +46,7 @@ const removeButtonEvents = () => {
 const mount = () => {
     communityEvents();
     buttonEvents();
+    setMappedData();
 }
 
 const unmount = () => {

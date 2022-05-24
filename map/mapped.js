@@ -1,66 +1,49 @@
 class Mapped {
-    #user;
-    #state;
-    #location;
     constructor() {
         try {
-            const userName = sessionStorage.getItem('name');
-            const id = sessionStorage.getItem('id');
-            const token = sessionStorage.getItem('token');
-            const email = sessionStorage.getItem('email');
-            this.#user = {
-                name: userName || '',
-                id: id || '',
-                token: token || '',
-                email: email || '',
-            }
-            this.#state = 'country';
-            this.#location = 'spain';
+            const rawPlace = window.location.pathname.replace(/\/map\/|\.html/g, '');
+            const place = (/community/).test(rawPlace) ? 'spain' : rawPlace;
+            const state = place === 'spain' ? 'country' : 'province';
+            sessionStorage.setItem('state', state);
+            sessionStorage.setItem('location', place);
         } catch (error) {
             console.log(error);
         }
     }
 
-    get user(){
-        return this.#user;
-    }
-
     get userId() {
-        return this.user.id;
+        return window.sessionStorage.user_id;
     }
 
     get userName() {
-        return this.user.name;
+        return window.sessionStorage.user;
     }
 
     get userToken() {
-        return this.user.token;
+        return window.sessionStorage.token;
     }
 
     get userEmail() {
-        return this.user.email;
-    }
-
-    set state(state) {
-        this.#state = state;
-        if (this.#state === 'country') {
-            this.location = 'spain';
-        }
+        return window.sessionStorage.email;
     }
 
     get state() {
-        return this.#state;
-    }
-
-    set location(location) {
-        this.#location = location;
-        if (this.#location === 'spain') {
-            this.state = 'country';
-        }
+        return window.sessionStorage.state;
     }
 
     get location() {
-        return this.#location;
+        return window.sessionStorage.location;
+    }
+
+    checkLocation() {
+        const rawPlace = window.location.pathname.replace(/\/map\/|\.html/g, '');
+        if (rawPlace === this.location) {
+            return;
+        }
+        const place = (/community/).test(rawPlace) ? 'spain' : rawPlace;
+        const state = place === 'spain' ? 'country' : 'province';
+        sessionStorage.setItem('state', state);
+        sessionStorage.setItem('location', place);
     }
 }
 
