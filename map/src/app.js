@@ -41,7 +41,7 @@ const mount = () => {
     communityEvents();
     buttonEvents();
     setMappedData();
-    setTimeout(showCityData, 5000);
+    showCityData();
 }
 
 const unmount = () => {
