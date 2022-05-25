@@ -38,10 +38,10 @@ const removeButtonEvents = () => {
 
 
 const mount = () => {
-    showCityData();
     communityEvents();
     buttonEvents();
     setMappedData();
+    setTimeout(showCityData, 5000);
 }
 
 const unmount = () => {
