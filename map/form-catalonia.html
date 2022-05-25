@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/styles/main.css">
   <script defer src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-  <script defer src="./src/app.js" type="module"></script>
+  <!--<script defer src="./src/app.js" type="module"></script>-->
   <script src="https://kit.fontawesome.com/f234bb6658.js" crossorigin="anonymous"></script>
   <title>Mapped</title>
 </head>
@@ -22,17 +22,16 @@
       </button>
       <div id="navMenu" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-md-auto">
-          <li class="nav-item"><a id="user_name" class="nav-link" href="#"></a></li>
+          <li class="nav-item"><a id="user_name" class="nav-link" href="#"><i class="fa-solid fa-user">csdsd</i></a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- main -->
 
-
+  <!-- Form -->
   <div class="container">
     <div class="row">
-      <div  class="col-6 off-md-3  mt-5 p-4 px-md-4 rounded-30 ">
+      <div  class="col-6 off-md-3  mt-5 p-4 px-md-4 rounded-30 container justify-content-end d-flex ">
         <div class="row">
           <div class="container map">
             <svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +44,7 @@
         </div>
       </div>
       <div class="col-6 off-md-3 mt-5 p-4 shadow rounded-30">
-          <form action="" method="POST" class="mt-5 p-4 rounded-30 ">
+          <form  class="mt-5 p-4 rounded-30 ">
             <h4 class="bold-title mt-3">Datos del viaje</h4>
             <div class="row ">
               <div class="mb-3 col-md-6">
@@ -92,6 +91,63 @@
                 <label class="regular-text">Comentario</label>
                 <textarea class="form-control  shadow rounded-30 focus" id="exampleFormControlTextarea1" rows="3" placeholder="Comentario adicional..."></textarea>
               </div>
+              <div class=" col-md-3">
+                <button class="btn text-light orang-bg rounded-30">Enviar</button>
+              </div>
+              <div class=" col-9 container justify-content-end d-flex">
+                <button id="show" class=" text-light  btn indigo-bg rounded-30" onclick="showFrom">Añadir datos sobre estancia</button></br>
+              </div>
+              <div class=" col-12 container justify-content-end d-flex">
+                <small>opcional</small>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  <!-- Formulario adicional-->
+  <div id="form-adi"class="container">
+    <div class="row">
+      <div class="col-12 off-md-3 mt-5 p-2 shadow rounded-30">
+          <form action="" method="POST" class="mt-5 p-4 rounded-30 ">
+            <h4 class="bold-title mt-3">Datos de estancia</h4>
+            <div class="row ">
+              <div class="mb-3 col-md-6">
+                <label class="regular-text">Name</label>
+                <input type="text" name="tipo" class="form-control shadow rounded-30 focus" required>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label class="regular-text">Categoria</label>
+                <select class="form-select" size="3" aria-label="form-control shadow rounded-30 focus">
+                  <option value="1">Hotel</option>
+                  <option value="2">Hostel</option>
+                  <option value="3">Otros</option>
+                </select>
+              </div>
+              <label class=" regular-text col-md-12">Rates</label>
+              <div class="mb-3 col-md-6">
+                <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label class=" regular-text">Coste de estancia por dia</label>
+                <input type="number" name="gasto" class="form-control shadow rounded-30 focus" required>
+              </div>
+              
+              <div class="mb-3 col-md-12">
+                <label class="regular-text">Comentario</label>
+                <textarea class="form-control  shadow rounded-30 focus" id="exampleFormControlTextarea1" rows="2" placeholder="Comentario adicional..."></textarea>
+              </div>
               <div class="mb-3 col-md-12">
                 <button class="btn orang-bg rounded-30">Enviar</button>
               </div>
@@ -100,7 +156,6 @@
       </div>
     </div>
   </div>
-
   <!--Footer-->
   <div class="mt-5  ">
     <footer class="text-center text-lg-start text-dark pt-3 rounded-30 radius-none-bottom"
@@ -142,7 +197,7 @@
     </footer>
   </div>
   <script>
-    function getUserNameById(id) {
+   function getUserNameById(id) {
       const url = 'https://mapped-backend-kdjbm.ondigitalocean.app/api/users/read_by_id.php/?user_id=' + id;
       fetch(url)
         .then(response => response.json())
@@ -154,7 +209,8 @@
         .catch(err => console.log(err))
     }
     getUserNameById(14);
-
+    function showFrom(){
+    }
   </script>
 </body>
 
