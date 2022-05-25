@@ -3,10 +3,6 @@ const requestOptions = {
     redirect: 'follow'
 };
 
-const container = document.querySelector('.destiny');
-const fragment = document.createDocumentFragment();
-
-
 function orderCityVisits() {
     return new Promise((resolve, reject) => {
         fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/travels/read.php", requestOptions)
@@ -27,6 +23,8 @@ function orderCityVisits() {
 function showCityData() {
     orderCityVisits()
         .then(cityArray => {
+            const container = document.querySelector('.destiny');
+            const fragment = document.createDocumentFragment();
             const cityResult = cityArray.map(async cityData => {
                 const cities = await fetch(`https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_id.php?city_id=${cityData[0]}`, requestOptions)
                 const parsedCities = await cities.json();
