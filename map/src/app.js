@@ -1,4 +1,5 @@
 import { Mapped } from './mapped.js';
+import { showCityData } from './city-data.js'
 
 const swup = new Swup();
 function setMappedData() {
@@ -37,6 +38,7 @@ const removeButtonEvents = () => {
 
 
 const mount = () => {
+    showCityData();
     communityEvents();
     buttonEvents();
     setMappedData();
