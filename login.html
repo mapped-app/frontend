@@ -67,7 +67,7 @@
     <div class="container">
     <div class="col-12 off-md-3 px-0">
         <div class="signin-from">
-            <form action="" method="POST" class="register-bg mt-5 p-4 rounded-30">
+            <form method="POST" class="register-bg mt-5 p-4 rounded-30">
                 <h4 class="text-white">Crea tu Cuenta</h4>
                 <div class="row ">
                     <div class="mb-3 col-md-12">
@@ -79,7 +79,8 @@
                         <input type="password" name="password" class="form-control indigo-bg rounded-30">
                     </div>
                     <div class="mb-3 col-md-12">
-                        <button class="btn orang-bg rounded-30">Acceder</button>
+                        <button class="btn orang-bg rounded-30" type="submit">Acceder</button>
+                        <span id="error"></span>
                     </div>
                     <div class="mb-3 col-md-6">
                         <span  class="text-white"><a href="#" class="link-none orang-cl">Has olvidado la contraseña?</a></span>
@@ -90,6 +91,7 @@
         </div>           
     </div>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="login.js"></script>
 
 </body>
 </html>
