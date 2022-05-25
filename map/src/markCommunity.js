@@ -1,4 +1,4 @@
-let user = window.mapped.userId;
+let user = sessionStorage.getItem("id");;
 let data;
 const communitiesId = {
     10: 'ES-CT'
