@@ -1,7 +1,7 @@
 class Mapped {
     constructor() {
         try {
-            const rawPlace = window.location.pathname.replace(/\/map\/|\.html/g, '');
+            const rawPlace = window.location.pathname.replace(/\/|frontend|map|\.html/g, '');
             const place = (/community/).test(rawPlace) ? 'spain' : rawPlace;
             const state = place === 'spain' ? 'country' : 'province';
             sessionStorage.setItem('state', state);
