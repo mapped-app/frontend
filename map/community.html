@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <h1>Mapped svg map</h1>
     <nav>
         <ul>
             <li><a id="ES" href="/map/community.html">Community</a></li>
@@ -19,7 +18,20 @@
             <li><a id="ES-VC" href="/map/valencia.html">Province</a></li>
         </ul>
     </nav>
-
+<!-- Nav bar-->
+<nav class="navbar navbar-expand-md navbar-light br-btm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../assets/img/logo.png"></a>
+      <button type="button" class="navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-md-auto">
+          <li class="nav-item"><a id="user_name" class="nav-link" href="#"><i class="fa-solid fa-user">csdsd</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
     <main id="swup" class="transition-fade">
         <div class="container title">Title</div>
@@ -300,10 +312,6 @@
                     </filter>
                 </defs>
             </svg>
-            <div class="container btns">
-                <button class="markBtn">Historial</button>
-                <button class="historyBtn">Marcar</button>
-            </div>
         </div>
         <div class="container data sites">
             Sitios más visitados
@@ -318,10 +326,53 @@
             Ciudades más visitadas
         </div>
     </main>
-
-    <footer>
-
-    </footer>
+    <!--Footer-->
+    <div class="mt-5  ">
+        <footer class="text-center text-lg-start text-dark pt-3 rounded-30 radius-none-bottom" style="background-color: #ECEFF1">
+          <section class="">
+            <div class="container text-center text-md-start mt-5">
+              <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                  <h6 class="text-uppercase fw-bold"><img src="../assets/img/logo.png"></h6>
+                  <p>
+                    Aqui explicamos un poco que hacemos
+                  </p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                  <h6 class="text-uppercase fw-bold">Useful links</h6>
+                  <hr
+                      class="mb-4 mt-0 d-inline-block mx-auto indigo-bg"
+                      style="width: 60px;  height: 2px"
+                      />
+                  <p>
+                    <a href="#!" class="text-dark">Your Account</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">Help</a>
+                  </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                  <h6 class="text-uppercase fw-bold">Contact</h6>
+                  <hr
+                      class="mb-4 mt-0 d-inline-block mx-auto indigo-bg"
+                      style="width: 60px;  height: 2px"
+                      />
+                  <p><i class="fas fa-location-arrow mx-1"></i> Barcelona, 08001, ES</p>
+                  <p><i class="fa-solid fa-envelope mx-1"></i>info@mapped.com</p>
+                  <p><i class="fa-solid fa-phone mx-1"></i> + 34 234 567 88</p>
+                  <p><i class="fa-solid fa-phone mx-1"></i> + 34 234 567 89</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2022Copyright:
+            <a class="link-none orang-cl regular-text" href="https://mapped.site/"
+               >Mapped.com</a
+              >
+          </div>
+        </footer>
+      </div>
     <script src="src/markCommunity.js"></script>
 </body>
 
