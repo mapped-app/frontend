@@ -1,5 +1,5 @@
-import { Mapped } from './mapped.js';
-import { showCityData } from './city-data.js'
+import { Mapped } from '../src/mapped.js';
+import { showCityData } from '../src/city-data.js'
 
 const swup = new Swup();
 function setMappedData() {
