@@ -1,7 +1,9 @@
 let user = window.mapped.userId;
 let data;
 const communitiesId = {
-    10: 'ES-CT'
+    10: 'ES-CT',
+    11: 'ES-MD',
+    12: 'ES-VC'
 };
 
 const myHeaders = new Headers();
