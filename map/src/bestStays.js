@@ -14,7 +14,7 @@ const getBestStays = async () => {
                 'stay_id': stay.stay_id,
                 'rate': parseFloat(stay.rate),
                 'cost': parseFloat(stay.cost),
-                'name': getStayName(stay.stay_id).value
+                'name': getStayName(stay.stay_id).value,
             }
         });
         //console.log(bookedStays);
@@ -29,6 +29,7 @@ const getBestStays = async () => {
 }
 
 function showBestStays(stays) {
+    console.log(stays);
     const container = document.querySelector('.data.stays');
     console.log(container);
     const list = document.createElement('ul');
@@ -38,7 +39,8 @@ function showBestStays(stays) {
         list.append(li);
         console.log(li);
     });
-    console.log(list);
+    list.style.display = 'block';
+    //console.log(list);
     container.append(list);
     console.log(container);
 }
