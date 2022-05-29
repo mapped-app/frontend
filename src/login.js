@@ -1,13 +1,15 @@
 const form = document.querySelector('form');
 form.addEventListener('submit', login);
 
-async function login(event){
+async function login(event) {
     event.preventDefault();
     const error = document.querySelector('#error');
-    const email = document.querySelector('input');
+    const inputs = document.querySelectorAll('input');
+    const email = inputs.item(0);
+    const password = inputs.item(1);
     const myHeaders = new Headers();
     const response = await fetch(
-        "https://mapped-backend-kdjbm.ondigitalocean.app/api/users/read_by_email.php/?email="+email.value,
+        `https://mapped-backend-kdjbm.ondigitalocean.app/api/users/read_by_email_password.php?email=${email.value}&password=${password.value}`,
         {
             method: 'GET',
             headers: myHeaders,
@@ -17,7 +19,6 @@ async function login(event){
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     const userData = await response.json();
-    console.log(userData);
     addSessionUser(userData);
     return location.pathname = '/map/community.html';
 }
