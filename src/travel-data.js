@@ -73,5 +73,3 @@ function createTravel(event) {
 };
 
 export { createTravel };
-
-/* ------------------ */

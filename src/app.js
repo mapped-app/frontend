@@ -7,7 +7,7 @@ import { getBestStays } from '../src/bestAndChipestHotels.js'
 const isTravelForm = window.location.pathname.includes('form-catalonia')
 let swup;
 if (!isTravelForm) {
-    const swup = new Swup();
+    swup = new Swup();
 }
 
 function setMappedData() {
@@ -60,7 +60,7 @@ const mount = () => {
     communityEvents();
     buttonEvents();
     setMappedData();
-
+    
     if (!isTravelForm) {
         showCityData();
         showSites();
