@@ -1,5 +1,6 @@
 import { Mapped } from '../src/mapped.js';
 import { showCityData } from '../src/city-data.js'
+import { showSites } from '../src/sites-data.js'
 import { getCityId } from '../src/markCommunity.js'
 import { getBestStays } from '../src/bestAndChipestHotels.js'
 
@@ -44,8 +45,10 @@ const mount = () => {
     buttonEvents();
     setMappedData();
     showCityData();
+    showSites();
     getCityId();
     getBestStays();
+
 }
 
 const unmount = () => {
