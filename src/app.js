@@ -1,5 +1,7 @@
 import { Mapped } from '../src/mapped.js';
 import { showCityData } from '../src/city-data.js'
+import { getCityId } from '../src/markCommunity.js'
+import { getBestStays } from '../src/bestAndChipestHotels.js'
 
 const swup = new Swup();
 function setMappedData() {
@@ -42,6 +44,8 @@ const mount = () => {
     buttonEvents();
     setMappedData();
     showCityData();
+    getCityId();
+    getBestStays();
 }
 
 const unmount = () => {
