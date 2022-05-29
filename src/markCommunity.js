@@ -1,7 +1,9 @@
 let user = sessionStorage.getItem("id");;
 let data;
 const communitiesId = {
-    10: 'ES-CT'
+    10: 'ES-CT',
+    11: 'ES-MD',
+    12: 'ES-VC'
 };
 
 const myHeaders = new Headers();
@@ -56,4 +58,6 @@ function markCommunity(id) {
     const community = document.querySelector(`svg #${communitiesId[id]}`);
     community.style.fill = '#626414';
 }
-getCityId();
+
+export {getCityId}
+
