@@ -1,6 +1,6 @@
 import { Mapped } from '../src/mapped.js';
 import { showCityData } from '../src/city-data.js'
-
+import { showSites } from '../src/sites-data.js'
 const swup = new Swup();
 function setMappedData() {
     window.mapped = new Mapped();
@@ -42,6 +42,7 @@ const mount = () => {
     buttonEvents();
     setMappedData();
     showCityData();
+    showSites();
 }
 
 const unmount = () => {

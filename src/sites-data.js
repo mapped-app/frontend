@@ -3,97 +3,66 @@ const requestOptions = {
     redirect: 'follow'
 };
 
+const communityDictinary = {
+    'catalonia': 10,
+    'madrid': 11,
+    'valencia': 12,
+}
+
 function getVisitedSites() {
     return new Promise((resolve, reject) => {
         fetch(`https://mapped-backend-kdjbm.ondigitalocean.app/api/sites_visited/read.php`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
                 resolve(data?.body?.map(site => site.site_id))
             })
     })
 }
 
 
-async function countVisitedSites() {
+function countVisitedSites(visitedSitesArr) {
     return new Promise((resolve, reject) => {
         let counts = {};
-         getVisitedSites()
-            .then(visitedSitesArr => {
                 visitedSitesArr.forEach((el) => {
                     counts[el] = counts[el] ? (counts[el] += 1) : 1;
                 });
-                //console.log(counts);
                 const countsSorted = Object.entries(counts).sort(([_, a], [__, b]) => b - a);
-                console.log(countsSorted);
                 resolve(countsSorted);
-            })
     })
 }
 
-/*async function getSiteNameById() {
-    return new Promise((resolve, reject) => {
-        let sitesName = [];
-        countVisitedSites()
-            .then(siteArr => {
-                siteArr.forEach(el => {
-                    let cont = 2;
-                    let name;
+function printSitesData(sitesArr) {
+    const container = document.querySelector('.sites');  
+    let name; 
+    let comunity = communityDictinary[window.mapped.location];
+    const result = sitesArr.map(async el => {
                     let id = el[0];
-                    let count = el[1];
-                     fetch(`https://mapped-backend-kdjbm.ondigitalocean.app/api/sites/read_by_id.php?site_id=${id}`,requestOptions)
-                    .then(response => response.json())
-                    .then(sites => {
-                    name = Promise.all(sites.name);
-                    sitesName.push(name+' '+count);
-                    //sitesName[0]=111111;
-                    //console.log(sites.name +' '+count );
-                });
-                });
-            })
-            //console.log(sitesName);
-            resolve(sitesName)
-    })
-}*/
-
-// test
-async function getSiteNameById() {
-        let sitesName = [];
-        const container = document.querySelector('.sites');
-        countVisitedSites()
-            .then(siteArr => {
-                siteArr.forEach(el => {
-                    let cont = 2;
-                    let name;
-                    let id = el[0];
-                    let count = el[1];
-                     fetch(`https://mapped-backend-kdjbm.ondigitalocean.app/api/sites/read_by_id.php?site_id=${id}`,requestOptions)
-                    .then(response => response.json())
-                    .then(sites => {
-                    name = sites.name;
-                    sitesName.push(name+' '+count);
-                    const itemList = document.createElement('li');
-                    itemList.textContent = name+' - '+count;
-                    container.appendChild(itemList);
-                });
-                
-                });
-            })
-            console.log(sitesName);
+                    const sitesData= await fetch(`https://mapped-backend-kdjbm.ondigitalocean.app/api/sites/read_by_id.php?site_id=${id}`,requestOptions)
+                    const parsedSites = await sitesData.json();                    
+                    return parsedSites
+                    ;})
+                    Promise.all(result).then(data => {
+                    // print with and without comunity filter (comunity)
+                    !!comunity ? data.filter(item => item.city_id == comunity).forEach((el,index) => {
+                        let count = sitesArr[index][1];
+                        name = el.name;
+                        const itemList = document.createElement('li');
+                        itemList.textContent = name+' - '+count;
+                        container.appendChild(itemList);
+                        }): data.forEach((el,index) => {
+                            let count = sitesArr[index][1];
+                            name = el.name;
+                            const itemList = document.createElement('li');
+                            itemList.textContent = name+' - '+count;
+                            container.appendChild(itemList);
+                            });
+                    })
 }
-
-
-
-
-
 
 function showSites(){
-    getSiteNameById()
-    .then(site => console.log(site))
-
+    getVisitedSites()
+    .then(sitesIds => countVisitedSites(sitesIds))
+    .then(sitesArr => printSitesData(sitesArr))
 }
 
-//getVisitedSites();
-//countVisitedSites();
-//getSiteNameById();
-showSites();
+export{showSites};
