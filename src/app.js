@@ -1,7 +1,13 @@
 import { Mapped } from '../src/mapped.js';
 import { showCityData } from '../src/city-data.js'
+import { createTravel } from '../src/travel-data.js';
 
-const swup = new Swup();
+const isTravelForm = window.location.pathname.includes('form-catalonia')
+let swup;
+if (!isTravelForm) {
+    const swup = new Swup();
+}
+
 function setMappedData() {
     window.mapped = new Mapped();
 }
@@ -16,6 +22,17 @@ const openCommunity = (event) => {
 const communityEvents = () => {
     const communitiesEl = document.querySelector('.map');
     communitiesEl?.addEventListener('click', openCommunity);
+}
+
+
+const createTravelEvent = () => {
+    const btnTravel = document.querySelector('#btnTravel');
+    btnTravel?.addEventListener('click', createTravel)
+}
+
+const removeTravelEvent = () => {
+    const btnTravel = document.querySelector('#btnTravel');
+    btnTravel?.addEventListener('click', createTravel);
 }
 
 
@@ -41,17 +58,21 @@ const mount = () => {
     communityEvents();
     buttonEvents();
     setMappedData();
-    showCityData();
+    if (!isTravelForm) {
+        showCityData();
+    }
+    createTravelEvent();
 }
 
 const unmount = () => {
     //removeCommunityEvents();
     removeButtonEvents();
+    removeTravelEvent();
 }
 
 
 mount();
 
-swup.on('willReplaceContent', unmount);
+swup?.on('willReplaceContent', unmount);
 
-swup.on('contentReplaced', mount);
+swup?.on('contentReplaced', mount);
