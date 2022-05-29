@@ -1,7 +1,9 @@
 import { Mapped } from '../src/mapped.js';
 import { showCityData } from '../src/city-data.js'
 import { createTravel } from '../src/travel-data.js';
-
+import { showSites } from '../src/sites-data.js'
+import { getCityId } from '../src/markCommunity.js'
+import { getBestStays } from '../src/bestAndChipestHotels.js'
 const isTravelForm = window.location.pathname.includes('form-catalonia')
 let swup;
 if (!isTravelForm) {
@@ -58,8 +60,12 @@ const mount = () => {
     communityEvents();
     buttonEvents();
     setMappedData();
+
     if (!isTravelForm) {
         showCityData();
+        showSites();
+        getCityId();
+        getBestStays();
     }
     createTravelEvent();
 }
