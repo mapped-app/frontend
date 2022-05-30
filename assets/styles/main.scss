@@ -5,6 +5,7 @@
 @import "map-styles";
 @import "star-rating";
 @import "transitions";
+@import "data-cards";
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -105,12 +106,6 @@ main {
   background-color: white;
   color: $orange-primary;
   border-color: $orange-primary;
-}
-
-.data {
-  border-radius: 30px;
-  padding: 15px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
 }
 
 ul {
