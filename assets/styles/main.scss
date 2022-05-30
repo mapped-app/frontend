@@ -1,383 +1,115 @@
 @import "colors";
 @import "../bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,400&display=swap');
+@import "utilities";
+@import "map-styles";
+@import "star-rating";
+@import "transitions";
+@import "data-cards";
 
 * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.bold-title {
-  font-weight: 600 ;
-}
- 
-.regular-text{
-  font-weight: 400 ;
-}
-.light-text {
-  font-weight: 200 ;
-}
 .top-bar {
   padding: 1px;
   color: white;
   text-align: center;
-  background-color:#F47458;
+  background-color: $orange-primary;
 }
- 
-.indigo-bg-dk {
-  background-color: #1A192D;
-}
-.indigo-bg {
-  background-color: $purple-p;
-}
-.orang-bg {
-  background-color: #F47458;
-}
-.orang-cl {
-  color:#F47458;
-}
-.link-none{
-  text-decoration: none;
-}
-.rounded-30{
-  border-radius: 30px;
-}
-.hotel-bg{
+
+.hotel-bg {
   background-image: url(../img/hotel-1.jpg);
   background-size: cover;
 }
-.register-bg{  
+
+.register-bg {
   background-image: url(../img/login.jpg);
   background-size: cover;
 }
-.br-btm{
-  border-bottom: #ebeaea 1px solid;
-}
-.radius-none-right{
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-.radius-none-left{
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-}
-.radius-none-bottom{
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
 
-.mg-top-none {
-  margin-top: 0px;
-}
- 
 .card-height {
   height: 500px;
 }
 
-.text-align-center {
-  text-align:center;
-}
-
 main {
-    margin: 50px;
-    display: grid;
-    grid-template-areas:
+  margin: 50px;
+  display: grid;
+  grid-template-areas:
         "title title title title title"
         ". . . . ."
         "map . site . stays"
         "map . . . ."
         "map . destiny . rate"
-        "map . . . ."
-    ;
-    grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
-    /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
-    grid-template-rows: auto 0px 250px 10px 250px;
-    gap: .5em;
+        "map . . . .";
+  grid-template-columns: minmax(auto, 600px) 0 minmax(300px, auto) 10px minmax(300px, auto);
+  /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
+  grid-template-rows: auto 0 250px 10px 250px;
+  gap: .5em;
 }
 
 .btns {
-    position: absolute;
-    top: 85%;
-    left: 55%;
-    width: auto;
+  position: absolute;
+  top: 85%;
+  left: 55%;
+  width: auto;
 }
 
 .historyBtn, .markBtn {
-    margin-left: 10px;
-    width: 90px;
-    border-radius: 15px;
-}
-
-@media all and (max-width: 1280px) {
-    .btns {
-        left: 45%;
-    }
-}
-
-@media all and (max-width: 1190px) {
-    .btns {
-        left: 40%;
-    }
-}
-
-@media all and (max-width: 1150px) {
-    main {
-        margin: 20px;
-        display: grid;
-        grid-template-areas:
-            "title title title title"
-            ". . . ."
-            "map map map map"
-            ". . . ."
-            ". site site ."
-            ". . . ."
-            ". stays stays ."
-            ". . . ."
-            ". destiny destiny ."
-            ". . . ."
-            ". rate rate ."
-        ;
-        grid-template-columns: 140px auto auto 140px;
-        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
-        gap: 1em;
-    }
-    .btns {
-        top: 85%;
-        left: 65%;
-    }
-}
-
-@media all and (max-width: 900px) {
-    main {
-        margin: 20px;
-        display: grid;
-        grid-template-columns: 100px auto auto 100px;
-        grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
-        gap: 0.5em;
-    }
-    .btns {
-        left: 55%;
-    }
-}
-
-
-
-@media all and (max-width: 700px) {
-    main {
-        margin: 20px;
-        display: grid;
-        grid-template-areas:
-            "title title title title"
-            ". . . ."
-            "map map map map"
-            ". . . ."
-            "site site site site"
-            ". . . ."
-            "stays stays stays stays"
-            ". . . ."
-            "destiny destiny destiny destiny"
-            ". . . ."
-            "rate rate rate rate"
-        ;
-        grid-template-columns: 50px auto auto 50px;
-        grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
-        gap: 0.5em;
-    }
-    .btns {
-        left: 50%;
-    }
-    .historyBtn, .markBtn {
-        width: 70px;
-        margin-left: 0;
-    }
-    .historyBtn {
-        margin-left: 5px;
-    }
-}
-
-@media (max-width: 500px) {
-    main {
-        margin: 5px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
-        gap: 0.5em;
-    }
-    .btns {
-        left: 50%;
-    }
-}
-
-@media (max-width: 400px) {
-
-    .btns {
-        left: 20%;
-    }
-    .historyBtn, .markBtn {
-        width: 70px;
-        margin-left: 5px;
-    }
+  margin-left: 10px;
+  width: 90px;
+  border-radius: 15px;
 }
 
 .title {
-    grid-area: title;
-    border-bottom: 3px solid #4D488C;
-        max-width: 100%;
+  grid-area: title;
+  border-bottom: 3px solid $purple-primary;
+  max-width: 100%;
 }
 
 .form-height {
-    max-height: 800px;
+  max-height: 800px;
 }
+
 .map {
-    grid-area: map;
-    display: grid;
-    place-items: center;
-    position: relative;
+  grid-area: map;
+  display: grid;
+  place-items: center;
+  position: relative;
 }
 
 .stays {
-    grid-area: stays;
+  grid-area: stays;
 }
 
 .sites {
-    grid-area: site;
+  grid-area: site;
 }
 
 .destiny {
-    grid-area: destiny;
+  grid-area: destiny;
 }
 
 .rate {
-    grid-area: rate;
+  grid-area: rate;
 }
 
 .markBtn {
-    background-color: #4D488C;
-    color: white;
+  background-color: $purple-primary;
+  color: white;
 }
 
 .historyBtn {
-    background-color: white;
-    color: #F47458;
-    border-color: #F47458;
+  background-color: white;
+  color: $orange-primary;
+  border-color: $orange-primary;
 }
-
-
-.data {
-    border-radius: 30px;
-    padding: 15px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-.shadow{
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 0px 0px 0px, rgba(14, 30, 37, 0.32) 0px 0px 0px 0px;
-}
-
-.focus:focus {
-    outline: none !important;
-    border:2px solid $purple-p;
-    box-shadow: 0 0 10px #719ECE;
-  }
-/* MAP STYLES*/
-
-.top-bar {
-    background-color: rgb(247, 134, 59);
-}
-
-svg path {
-    fill: #DBD8D8;
-    stroke: white;
-    stroke-width: 1px;
-    cursor: pointer;
-}
-
-.map path:hover {
-    fill: #4D488C;
-    transition: 1s;
-    transform: translateX(-4px) scale(1.01, 1.01);
-    filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-}
-
-path {
-    transition: .5s;
-}
-
-svg {
-    width: 100%;
-    height: 100%;
-}
-
-/* TRANSITIONS */
 
 ul {
-    display: none;
-}
-
-.transition-fade {
-    opacity: 1;
-    transition: .5s;
-    transform: translateX(0);
-    transform-origin: left;
-}
-
-html.is-animating .transition-fade {
-    opacity: 1;
-    transform: translateX(100%);
-}
-
-html.is-leaving .transition-fade {
-    opacity: 0;
-    transform: translateX(0);
-}
-
-
-.transition-swipe {
-
-    transition: .5s;
-    transform: translateY(0);
-}
-
-html.is-animating .transition-swipe {
-
-    transform: translateY(100%);
-}
-
-// Star style
-.rates {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rates:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rates:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rates:not(:checked) > label:before {
-    content: '★ ';
-}
-.rates > input:checked ~ label {
-    color: $orange-p;    
-}
-.rates:not(:checked) > label:hover,
-.rates:not(:checked) > label:hover ~ label {
-    color: $orange-p;  
-}
-.rates > input:checked + label:hover,
-.rates > input:checked + label:hover ~ label,
-.rates > input:checked ~ label:hover,
-.rates > input:checked ~ label:hover ~ label,
-.rates > label:hover ~ input:checked ~ label {
-    color: $purple-p;
+  display: none;
 }
 
 #notLogged {
@@ -405,3 +137,5 @@ html.is-animating .transition-swipe {
         transform: rotate(360deg);
     }
 }
+
+@import "media-queries";
