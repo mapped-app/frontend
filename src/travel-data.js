@@ -31,8 +31,8 @@ function createTravel(event) {
                 myHeaders.append("Content-Type", "application/json");
 
                 var raw = JSON.stringify({
-                    "city_id": "14",
-                    "user_id": "15",
+                    "city_id": "12",
+                    "user_id": window.mapped.userId,
                     "start_date": startDate,
                     "end_date": endDate,
                     "city_origen": cityOrigin,
