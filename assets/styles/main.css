@@ -11284,9 +11284,14 @@ html.is-animating .transition-swipe {
 }
 
 .data {
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 15px;
-  box-shadow: rgba(91, 91, 91, 0.16) 0 10px 36px 0, rgba(31, 31, 31, 0.06) 0 0 0 1px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 0 0 1px;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.data:hover {
+  box-shadow: rgba(91, 91, 91, 0.16) 0 10px 36px 0, rgba(0, 0, 0, 0.07) 0 0 0 1px;
+  transform: scale(1.015);
 }
 
 .sites h4, .sites .h4, .stays h4, .stays .h4, .rate h4, .rate .h4, .destiny h4, .destiny .h4 {
@@ -11295,8 +11300,19 @@ html.is-animating .transition-swipe {
   margin-bottom: 10px;
   margin-left: 10px;
 }
+.sites ol, .stays ol, .rate ol, .destiny ol {
+  padding-left: 20px;
+}
 .sites ol li, .stays ol li, .rate ol li, .destiny ol li {
   font-weight: normal;
+}
+.sites ol li .div-list, .stays ol li .div-list, .rate ol li .div-list, .destiny ol li .div-list {
+  display: flex;
+  justify-content: space-between;
+}
+.sites ol li .div-list i, .stays ol li .div-list i, .rate ol li .div-list i, .destiny ol li .div-list i {
+  margin-left: 5px;
+  color: gray;
 }
 
 * {
