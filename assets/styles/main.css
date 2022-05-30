@@ -11233,90 +11233,6 @@ main {
   border-radius: 15px;
 }
 
-@media all and (max-width: 1280px) {
-  .btns {
-    left: 45%;
-  }
-}
-@media all and (max-width: 1190px) {
-  .btns {
-    left: 40%;
-  }
-}
-@media all and (max-width: 1150px) {
-  main {
-    margin: 20px;
-    display: grid;
-    grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." ". site site ." ". . . ." ". stays stays ." ". . . ." ". destiny destiny ." ". . . ." ". rate rate .";
-    grid-template-columns: 140px auto auto 140px;
-    grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
-    gap: 1em;
-  }
-
-  .btns {
-    top: 85%;
-    left: 65%;
-  }
-}
-@media all and (max-width: 900px) {
-  main {
-    margin: 20px;
-    display: grid;
-    grid-template-columns: 100px auto auto 100px;
-    grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
-    gap: 0.5em;
-  }
-
-  .btns {
-    left: 55%;
-  }
-}
-@media all and (max-width: 700px) {
-  main {
-    margin: 20px;
-    display: grid;
-    grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." "site site site site" ". . . ." "stays stays stays stays" ". . . ." "destiny destiny destiny destiny" ". . . ." "rate rate rate rate";
-    grid-template-columns: 50px auto auto 50px;
-    grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
-    gap: 0.5em;
-  }
-
-  .btns {
-    left: 50%;
-  }
-
-  .historyBtn, .markBtn {
-    width: 70px;
-    margin-left: 0;
-  }
-
-  .historyBtn {
-    margin-left: 5px;
-  }
-}
-@media (max-width: 500px) {
-  main {
-    margin: 5px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
-    gap: 0.5em;
-  }
-
-  .btns {
-    left: 50%;
-  }
-}
-@media (max-width: 400px) {
-  .btns {
-    left: 20%;
-  }
-
-  .historyBtn, .markBtn {
-    width: 70px;
-    margin-left: 5px;
-  }
-}
 .title {
   grid-area: title;
   border-bottom: 3px solid #4D488C;
@@ -11476,6 +11392,91 @@ html.is-animating .transition-swipe {
 .rates > input:checked ~ label:hover ~ label,
 .rates > label:hover ~ input:checked ~ label {
   color: #4D488C;
+}
+
+@media all and (max-width: 1280px) {
+  .btns {
+    left: 45%;
+  }
+}
+@media all and (max-width: 1190px) {
+  .btns {
+    left: 40%;
+  }
+}
+@media all and (max-width: 1150px) {
+  main {
+    margin: 20px;
+    display: grid;
+    grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." ". site site ." ". . . ." ". stays stays ." ". . . ." ". destiny destiny ." ". . . ." ". rate rate .";
+    grid-template-columns: 140px auto auto 140px;
+    grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px 40px 400px;
+    gap: 1em;
+  }
+
+  .btns {
+    top: 85%;
+    left: 65%;
+  }
+}
+@media all and (max-width: 900px) {
+  main {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 100px auto auto 100px;
+    grid-template-rows: auto 0px 600px 40px 400px 40px 400px 40px 400px;
+    gap: 0.5em;
+  }
+
+  .btns {
+    left: 55%;
+  }
+}
+@media all and (max-width: 700px) {
+  main {
+    margin: 20px;
+    display: grid;
+    grid-template-areas: "title title title title" ". . . ." "map map map map" ". . . ." "site site site site" ". . . ." "stays stays stays stays" ". . . ." "destiny destiny destiny destiny" ". . . ." "rate rate rate rate";
+    grid-template-columns: 50px auto auto 50px;
+    grid-template-rows: auto 0px 500px 40px 300px 40px 300px 40px 300px 40px 300px;
+    gap: 0.5em;
+  }
+
+  .btns {
+    left: 50%;
+  }
+
+  .historyBtn, .markBtn {
+    width: 70px;
+    margin-left: 0;
+  }
+
+  .historyBtn {
+    margin-left: 5px;
+  }
+}
+@media (max-width: 500px) {
+  main {
+    margin: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 10px 400px 10px 300px 10px 300px 10px 300px 10px 300px;
+    gap: 0.5em;
+  }
+
+  .btns {
+    left: 50%;
+  }
+}
+@media (max-width: 400px) {
+  .btns {
+    left: 20%;
+  }
+
+  .historyBtn, .markBtn {
+    width: 70px;
+    margin-left: 5px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
