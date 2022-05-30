@@ -11310,6 +11310,10 @@ html.is-animating .transition-swipe {
   display: flex;
   justify-content: space-between;
 }
+.sites ol li .div-list i, .stays ol li .div-list i, .rate ol li .div-list i, .destiny ol li .div-list i {
+  margin-left: 5px;
+  color: gray;
+}
 
 * {
   font-family: "Poppins", sans-serif;

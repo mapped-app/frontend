@@ -27,6 +27,11 @@
       .div-list {
         display: flex;
         justify-content: space-between;
+
+        i {
+          margin-left: 5px;
+          color: gray;
+        }
       }
     }
   }

@@ -71,6 +71,12 @@ function printSitesData(sitesArr) {
                         let span2 = document.createElement('span');
                         span1.textContent = name;
                         span2.textContent = count;
+
+                        // 👇 EYE ICON
+                        let eye = document.createElement('i');
+                        eye.classList.add("fa-solid", "fa-eye");
+                        span2.appendChild(eye);
+
                         div.appendChild(span1);
                         div.appendChild(span2);
                         itemList.appendChild(div);
