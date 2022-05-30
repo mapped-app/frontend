@@ -11119,13 +11119,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-* {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .bold-title {
   font-weight: 600;
 }
@@ -11136,13 +11129,6 @@ textarea.form-control-lg {
 
 .light-text {
   font-weight: 200;
-}
-
-.top-bar {
-  padding: 1px;
-  color: white;
-  text-align: center;
-  background-color: #F47458;
 }
 
 .indigo-bg-dk {
@@ -11169,6 +11155,148 @@ textarea.form-control-lg {
   border-radius: 30px;
 }
 
+.br-btm {
+  border-bottom: #ebeaea 1px solid;
+}
+
+.radius-none-right {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.radius-none-left {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.radius-none-bottom {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.mg-top-none {
+  margin-top: 0;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.shadow {
+  box-shadow: rgba(14, 30, 37, 0.12) 0 0 0 0, rgba(14, 30, 37, 0.32) 0 0 0 0;
+}
+
+.focus:focus {
+  outline: none !important;
+  border: 2px solid #4D488C;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+svg path {
+  fill: #DBD8D8;
+  stroke: white;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+
+.map path:hover {
+  fill: #4D488C;
+  transition: 1s;
+  transform: translateX(-4px) scale(1.01, 1.01);
+  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
+}
+
+path {
+  transition: 0.5s;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rates {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+
+.rates:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rates:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rates:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.rates > input:checked ~ label {
+  color: #F47458;
+}
+
+.rates:not(:checked) > label:hover,
+.rates:not(:checked) > label:hover ~ label {
+  color: #F47458;
+}
+
+.rates > input:checked + label:hover,
+.rates > input:checked + label:hover ~ label,
+.rates > input:checked ~ label:hover,
+.rates > input:checked ~ label:hover ~ label,
+.rates > label:hover ~ input:checked ~ label {
+  color: #4D488C;
+}
+
+.transition-fade {
+  opacity: 1;
+  transition: 0.5s;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+.transition-swipe {
+  transition: 0.5s;
+  transform: translateY(0);
+}
+
+html.is-animating .transition-swipe {
+  transform: translateY(100%);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-bar {
+  padding: 1px;
+  color: white;
+  text-align: center;
+  background-color: #F47458;
+}
+
 .hotel-bg {
   background-image: url(../img/hotel-1.jpg);
   background-size: cover;
@@ -11179,44 +11307,17 @@ textarea.form-control-lg {
   background-size: cover;
 }
 
-.br-btm {
-  border-bottom: #ebeaea 1px solid;
-}
-
-.radius-none-right {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
-.radius-none-left {
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-}
-
-.radius-none-bottom {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-
-.mg-top-none {
-  margin-top: 0px;
-}
-
 .card-height {
   height: 500px;
-}
-
-.text-align-center {
-  text-align: center;
 }
 
 main {
   margin: 50px;
   display: grid;
   grid-template-areas: "title title title title title" ". . . . ." "map . site . stays" "map . . . ." "map . destiny . rate" "map . . . .";
-  grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
+  grid-template-columns: minmax(auto, 600px) 0 minmax(300px, auto) 10px minmax(300px, auto);
   /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
-  grid-template-rows: auto 0px 250px 10px 250px;
+  grid-template-rows: auto 0 250px 10px 250px;
   gap: 0.5em;
 }
 
@@ -11280,118 +11381,11 @@ main {
 .data {
   border-radius: 30px;
   padding: 15px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
 }
 
-.shadow {
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 0px 0px 0px, rgba(14, 30, 37, 0.32) 0px 0px 0px 0px;
-}
-
-.focus:focus {
-  outline: none !important;
-  border: 2px solid #4D488C;
-  box-shadow: 0 0 10px #719ECE;
-}
-
-/* MAP STYLES*/
-.top-bar {
-  background-color: rgb(247, 134, 59);
-}
-
-svg path {
-  fill: #DBD8D8;
-  stroke: white;
-  stroke-width: 1px;
-  cursor: pointer;
-}
-
-.map path:hover {
-  fill: #4D488C;
-  transition: 1s;
-  transform: translateX(-4px) scale(1.01, 1.01);
-  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-}
-
-path {
-  transition: 0.5s;
-}
-
-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* TRANSITIONS */
 ul {
   display: none;
-}
-
-.transition-fade {
-  opacity: 1;
-  transition: 0.5s;
-  transform: translateX(0);
-  transform-origin: left;
-}
-
-html.is-animating .transition-fade {
-  opacity: 1;
-  transform: translateX(100%);
-}
-
-html.is-leaving .transition-fade {
-  opacity: 0;
-  transform: translateX(0);
-}
-
-.transition-swipe {
-  transition: 0.5s;
-  transform: translateY(0);
-}
-
-html.is-animating .transition-swipe {
-  transform: translateY(100%);
-}
-
-.rates {
-  float: left;
-  height: 46px;
-  padding: 0 10px;
-}
-
-.rates:not(:checked) > input {
-  position: absolute;
-  top: -9999px;
-}
-
-.rates:not(:checked) > label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ccc;
-}
-
-.rates:not(:checked) > label:before {
-  content: "★ ";
-}
-
-.rates > input:checked ~ label {
-  color: #F47458;
-}
-
-.rates:not(:checked) > label:hover,
-.rates:not(:checked) > label:hover ~ label {
-  color: #F47458;
-}
-
-.rates > input:checked + label:hover,
-.rates > input:checked + label:hover ~ label,
-.rates > input:checked ~ label:hover,
-.rates > input:checked ~ label:hover ~ label,
-.rates > label:hover ~ input:checked ~ label {
-  color: #4D488C;
 }
 
 @media all and (max-width: 1280px) {

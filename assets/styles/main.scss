@@ -1,6 +1,10 @@
 @import "colors";
 @import "../bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,400&display=swap');
+@import "utilities";
+@import "map-styles";
+@import "star-rating";
+@import "transitions";
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -9,47 +13,11 @@
   box-sizing: border-box;
 }
 
-.bold-title {
-  font-weight: 600;
-}
-
-.regular-text {
-  font-weight: 400;
-}
-
-.light-text {
-  font-weight: 200;
-}
-
 .top-bar {
   padding: 1px;
   color: white;
   text-align: center;
-  background-color: #F47458;
-}
-
-.indigo-bg-dk {
-  background-color: #1A192D;
-}
-
-.indigo-bg {
-  background-color: $purple-p;
-}
-
-.orang-bg {
-  background-color: #F47458;
-}
-
-.orang-cl {
-  color: #F47458;
-}
-
-.link-none {
-  text-decoration: none;
-}
-
-.rounded-30 {
-  border-radius: 30px;
+  background-color: $orange-primary;
 }
 
 .hotel-bg {
@@ -62,35 +30,8 @@
   background-size: cover;
 }
 
-.br-btm {
-  border-bottom: #ebeaea 1px solid;
-}
-
-.radius-none-right {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
-.radius-none-left {
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-}
-
-.radius-none-bottom {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-
-.mg-top-none {
-  margin-top: 0px;
-}
-
 .card-height {
   height: 500px;
-}
-
-.text-align-center {
-  text-align: center;
 }
 
 main {
@@ -103,9 +44,9 @@ main {
         "map . . . ."
         "map . destiny . rate"
         "map . . . .";
-  grid-template-columns: minmax(auto, 600px) 0px minmax(300px, auto) 10px minmax(300px, auto);
+  grid-template-columns: minmax(auto, 600px) 0 minmax(300px, auto) 10px minmax(300px, auto);
   /* Rows: (10) [Title, space, map, space, site, space, stays, space, destinations, space] */
-  grid-template-rows: auto 0px 250px 10px 250px;
+  grid-template-rows: auto 0 250px 10px 250px;
   gap: .5em;
 }
 
@@ -124,7 +65,7 @@ main {
 
 .title {
   grid-area: title;
-  border-bottom: 3px solid #4D488C;
+  border-bottom: 3px solid $purple-primary;
   max-width: 100%;
 }
 
@@ -156,138 +97,24 @@ main {
 }
 
 .markBtn {
-  background-color: #4D488C;
+  background-color: $purple-primary;
   color: white;
 }
 
 .historyBtn {
   background-color: white;
-  color: #F47458;
-  border-color: #F47458;
+  color: $orange-primary;
+  border-color: $orange-primary;
 }
-
 
 .data {
   border-radius: 30px;
   padding: 15px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
 }
-
-.shadow {
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 0px 0px 0px, rgba(14, 30, 37, 0.32) 0px 0px 0px 0px;
-}
-
-.focus:focus {
-  outline: none !important;
-  border: 2px solid $purple-p;
-  box-shadow: 0 0 10px #719ECE;
-}
-
-/* MAP STYLES*/
-
-.top-bar {
-  background-color: rgb(247, 134, 59);
-}
-
-svg path {
-  fill: #DBD8D8;
-  stroke: white;
-  stroke-width: 1px;
-  cursor: pointer;
-}
-
-.map path:hover {
-  fill: #4D488C;
-  transition: 1s;
-  transform: translateX(-4px) scale(1.01, 1.01);
-  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.3));
-}
-
-path {
-  transition: .5s;
-}
-
-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* TRANSITIONS */
 
 ul {
   display: none;
-}
-
-.transition-fade {
-  opacity: 1;
-  transition: .5s;
-  transform: translateX(0);
-  transform-origin: left;
-}
-
-html.is-animating .transition-fade {
-  opacity: 1;
-  transform: translateX(100%);
-}
-
-html.is-leaving .transition-fade {
-  opacity: 0;
-  transform: translateX(0);
-}
-
-
-.transition-swipe {
-
-  transition: .5s;
-  transform: translateY(0);
-}
-
-html.is-animating .transition-swipe {
-
-  transform: translateY(100%);
-}
-
-// Star style
-.rates {
-  float: left;
-  height: 46px;
-  padding: 0 10px;
-}
-
-.rates:not(:checked) > input {
-  position: absolute;
-  top: -9999px;
-}
-
-.rates:not(:checked) > label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ccc;
-}
-
-.rates:not(:checked) > label:before {
-  content: '★ ';
-}
-
-.rates > input:checked ~ label {
-  color: $orange-p;
-}
-
-.rates:not(:checked) > label:hover,
-.rates:not(:checked) > label:hover ~ label {
-  color: $orange-p;
-}
-
-.rates > input:checked + label:hover,
-.rates > input:checked + label:hover ~ label,
-.rates > input:checked ~ label:hover,
-.rates > input:checked ~ label:hover ~ label,
-.rates > label:hover ~ input:checked ~ label {
-  color: $purple-p;
 }
 
 @import "media-queries";
