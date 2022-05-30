@@ -53,7 +53,10 @@ function createTravel(event) {
 
                 fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/travels/create.php", requestOptions)
                     .then(response => response.text())
-                    .then(result => console.log(result))
+                    .then(result => {
+                        console.log(result);
+                        location.reload();
+                    })
                     .catch(error => console.log('error', error));
             })
             .catch(err => reject(err));
