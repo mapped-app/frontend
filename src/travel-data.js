@@ -1,4 +1,5 @@
 function createTravel(event) {
+    event.preventDefault();
     if (!"geolocation" in navigator) {
         return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
     }
