@@ -1,7 +1,13 @@
 .data {
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 15px;
-  box-shadow: rgba(91, 91, 91, 0.16) 0 10px 36px 0, rgba(31, 31, 31, 0.06) 0 0 0 1px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 0 0 1px;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+
+  &:hover {
+    box-shadow: rgba(91, 91, 91, 0.16) 0 10px 36px 0, rgba(0, 0, 0, 0.07) 0 0 0 1px;
+    transform: scale(1.015);
+  }
 }
 
 .sites, .stays, .rate, .destiny {
@@ -13,8 +19,15 @@
   }
 
   ol {
+    padding-left: 20px;
+
     li {
       font-weight: normal;
+
+      .div-list {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 }
