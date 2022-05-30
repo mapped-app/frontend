@@ -40,8 +40,8 @@ function createTravel(event) {
                     "transport": transport,
                     "transport_cost": transportCost,
                     "transport_time": transportTime,
-                    "travel_cost": "",
-                    "travel_time": ""
+                    "travel_cost": "1",
+                    "travel_time": "1"
                 });
 
                 var requestOptions = {
