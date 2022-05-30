@@ -379,3 +379,29 @@ html.is-animating .transition-swipe {
 .rates > label:hover ~ input:checked ~ label {
     color: $purple-p;
 }
+
+#notLogged {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 100px;
+}
+
+.spinner {
+    margin: 15px;
+    border: 4px solid #ffc10775;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #4D488C;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
