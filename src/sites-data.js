@@ -5,8 +5,8 @@ const requestOptions = {
 
 const communityDictinary = {
     'catalonia': 10,
-    'madrid': 11,
-    'valencia': 12,
+    'madrid': 30,
+    'valencia': 32,
 }
 
 function getVisitedSites() {
@@ -33,6 +33,7 @@ function countVisitedSites(visitedSitesArr) {
 
 function printSitesData(sitesArr) {
     const container = document.querySelector('.sites');  
+    const list =  document.createElement('ol');
     let name; 
     let comunity = communityDictinary[window.mapped.location];
     const result = sitesArr.map(async el => {
@@ -44,17 +45,37 @@ function printSitesData(sitesArr) {
                     Promise.all(result).then(data => {
                     // print with and without comunity filter (comunity)
                     !!comunity ? data.filter(item => item.city_id == comunity).forEach((el,index) => {
+                        console.log(comunity);
+                        console.log(el);
                         let count = sitesArr[index][1];
                         name = el.name;
-                        const itemList = document.createElement('li');
-                        itemList.textContent = name+' - '+count;
-                        container.appendChild(itemList);
+                        let itemList = document.createElement('li');
+                        let div = document.createElement('div');
+                        div.classList.add("div-list");
+                        let span1 = document.createElement('span');
+                        let span2 = document.createElement('span');
+                        span1.textContent = name;
+                        span2.textContent = count;
+                        div.appendChild(span1);
+                        div.appendChild(span2);
+                        itemList.appendChild(div);
+                        list.appendChild(itemList);
+                        container.appendChild(list);
                         }): data.forEach((el,index) => {
                             let count = sitesArr[index][1];
                             name = el.name;
-                            const itemList = document.createElement('li');
-                            itemList.textContent = name+' - '+count;
-                            container.appendChild(itemList);
+                            let itemList = document.createElement('li');
+                        let div = document.createElement('div');
+                        div.classList.add("div-list");
+                        let span1 = document.createElement('span');
+                        let span2 = document.createElement('span');
+                        span1.textContent = name;
+                        span2.textContent = count;
+                        div.appendChild(span1);
+                        div.appendChild(span2);
+                        itemList.appendChild(div);
+                        list.appendChild(itemList);
+                        container.appendChild(list);
                             });
                     })
 }
