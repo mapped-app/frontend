@@ -46,16 +46,19 @@ const getBestAndChipestStays = async () => {
             bookedStays.then(stays => {
                 return stays.map(stay => {
                     let object = { name: '', rate: 0, cost: 0, cont: 0 };
-                    stays.map(st => {
-                        if (stay.name === st.name) {
-                            object.rate += st.rate;
-                            object.cont++;
-                        }
-                    })
-                    object.name = stay.name;
-                    object.cost = stay.cost;
-                    object.rate = object.rate / object.cont;
-                    return object;
+                    if (!!stay) {
+                        stays.map(st => {
+                            if (stay.name === st?.name) {
+                                object.rate += st.rate;
+                                object.cont++;
+                            }
+                        })
+                        object.name = stay.name;
+                        object.cost = stay.cost;
+                        object.rate = object.rate / object.cont;
+                        return object;
+                    }
+                    return;
                 })
             }).then(stays => {
                 let unicStays = stays.reduce((allStays, stay) => {
