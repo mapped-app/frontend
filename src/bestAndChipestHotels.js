@@ -13,9 +13,8 @@ const getBestAndChipestStays = async () => {
             });
             let bookedStays = await response.json();
             bookedStays = await bookedStays.body.map(async stay => {
-                let city = await getStayCity(stay.stay_id);
 
-                if (cities.includes(city)) {
+                if (typeof cities === "boolean") {
                     return {
                         'travel_id': stay.travel_id,
                         'stay_id': stay.stay_id,
@@ -23,6 +22,18 @@ const getBestAndChipestStays = async () => {
                         'cost': parseFloat(stay.cost),
                         'name': await getStayName(stay.stay_id),
                     };
+                }
+                else {
+                    if (cities.includes(city)) {
+                        let city = await getStayCity(stay.stay_id);
+                        return {
+                            'travel_id': stay.travel_id,
+                            'stay_id': stay.stay_id,
+                            'rate': parseFloat(stay.rate),
+                            'cost': parseFloat(stay.cost),
+                            'name': await getStayName(stay.stay_id),
+                        };
+                    }
                 }
             });
 
@@ -120,35 +131,41 @@ async function getStayCity(idStay) {
 }
 
 async function getCommunityCities() {
-    const communityId = communityDictinary[window.mapped.location];
-    try {
-        const responseProvince = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/provinces/read_by_community_id.php?community_id=" + communityId, {
-            method: 'GET',
-
-        });
-
-        const provinces = await (await responseProvince).json();
-        const citiesID = [];
-
-        !!provinces?.body && await provinces.body.map(async function (province) {
-            const responseCities = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_province_id.php?province_id=" + province.province_id, {
+    if (window.mapped.state === "country") {
+        return true;
+    }
+    else {
+        const communityId = communityDictinary[window.mapped.location];
+        try {
+            const responseProvince = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/provinces/read_by_community_id.php?community_id=" + communityId, {
                 method: 'GET',
 
             });
 
-            const data = await (await responseCities).json();
+            const provinces = await (await responseProvince).json();
+            const citiesID = [];
 
-            !!data?.body && await data?.body.map(async function (city) {
-                const temp = await city;
+            !!provinces?.body && await provinces.body.map(async function (province) {
+                const responseCities = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_province_id.php?province_id=" + province.province_id, {
+                    method: 'GET',
 
-                citiesID.push(parseInt(temp.city_id));
+                });
+
+                const data = await (await responseCities).json();
+
+                !!data?.body && await data?.body.map(async function (city) {
+                    const temp = await city;
+
+                    citiesID.push(parseInt(temp.city_id));
+                });
+
             });
 
-        });
+            return citiesID;
 
-        return citiesID;
-    } catch (error) {
-        console.log(error)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
