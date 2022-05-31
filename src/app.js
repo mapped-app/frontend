@@ -30,7 +30,7 @@ function setDocumentTitle() {
 
 const openCommunity = (event) => {
     if (event.target.tagName === 'path') {
-        const links = [...document.querySelectorAll('nav a')];
+        const links = [...document.querySelectorAll('nav ul a')];
         links.find(link => link.id === event.target.id)?.click();
     }
 }
