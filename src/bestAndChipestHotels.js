@@ -77,8 +77,18 @@ const getBestAndChipestStays = async () => {
 
                 staysByRate.slice(0, 8).forEach(stay => {
                     const li = document.createElement('li');
-                    li.textContent = `${stay.name.trim()} - ${stay.rate}/5`;
-                    listRate.append(li);
+                    const div = document.createElement('div');
+                    div.classList.add('div-list');
+                    const span1 = document.createElement('span');
+                    const span2 = document.createElement('span');
+
+                    span1.innerHTML = stay.name;
+                    span2.innerHTML = stay.rate + "/5";
+
+                    div.appendChild(span1);
+                    div.appendChild(span2);
+                    li.appendChild(div);
+                    listRate.appendChild(li);
                 });
 
                 listRate.style.display = 'block';
@@ -89,8 +99,18 @@ const getBestAndChipestStays = async () => {
 
                 staysByCost.slice(0, 8).forEach(stay => {
                     const li = document.createElement('li');
-                    li.textContent = `${stay.name.trim()} - ${stay.cost}€`;
-                    listCost.append(li);
+                    const div = document.createElement('div');
+                    div.classList.add('div-list');
+                    const span1 = document.createElement('span');
+                    const span2 = document.createElement('span');
+
+                    span1.innerHTML = stay.name;
+                    span2.innerHTML = stay.rate + "/5";
+
+                    div.appendChild(span1);
+                    div.appendChild(span2);
+                    li.appendChild(div);
+                    listCost.appendChild(li);
                 });
 
                 listCost.style.display = 'block';
