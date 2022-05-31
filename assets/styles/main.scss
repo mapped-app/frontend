@@ -139,3 +139,21 @@ ul {
 }
 
 @import "media-queries";
+
+.data {
+  overflow-y: scroll;
+}
+
+
+.data::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.data::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.data::-webkit-scrollbar-thumb {
+  background-color: #11171a;
+  border-radius: 10px;
+}

@@ -60,7 +60,7 @@ async function getCommunityId(id) {
 function markCommunity(id) {
     const community = document.querySelector(`svg #${communitiesId[id]}`);
     if (!!community) {
-        community.style.fill = '#626414';
+        community.style.fill = '#F47458';
     }
 }
 
