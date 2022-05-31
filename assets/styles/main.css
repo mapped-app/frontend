@@ -11298,15 +11298,17 @@ html.is-animating .transition-swipe {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
-  margin-left: 10px;
+  margin-left: 18px;
 }
 .sites ol, .stays ol, .rate ol, .destiny ol {
   padding-left: 20px;
 }
 .sites ol li, .stays ol li, .rate ol li, .destiny ol li {
   font-weight: normal;
+  color: gray;
 }
 .sites ol li .div-list, .stays ol li .div-list, .rate ol li .div-list, .destiny ol li .div-list {
+  color: black;
   display: flex;
   justify-content: space-between;
 }
