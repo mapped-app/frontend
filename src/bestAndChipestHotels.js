@@ -5,84 +5,86 @@ const communityDictinary = {
 };
 
 const getBestAndChipestStays = async () => {
-    const cities = await getCommunityCities();
-    try {
-        const response = await fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/booked_stays/read.php", {
-            method: 'GET',
-        });
-        let bookedStays = await response.json();
-        bookedStays = await bookedStays.body.map(async stay => {
-            let city = await getStayCity(stay.stay_id);
-
-            if (cities.includes(city)) {
-                return {
-                    'travel_id': stay.travel_id,
-                    'stay_id': stay.stay_id,
-                    'rate': parseFloat(stay.rate),
-                    'cost': parseFloat(stay.cost),
-                    'name': await getStayName(stay.stay_id),
-                };
-            }
-        });
-
-        bookedStays = Promise.all(bookedStays).then(stays => {
-            return stays.sort((a, b) => {
-                return a.name.toLowerCase().trim().localeCompare(b.name.toLowerCase().trim());
+    const cities = await getCommunityCities()
+    if (!!cities) {
+        try {
+            const response = await fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/booked_stays/read.php", {
+                method: 'GET',
             });
-        });
+            let bookedStays = await response.json();
+            bookedStays = await bookedStays.body.map(async stay => {
+                let city = await getStayCity(stay.stay_id);
 
-        bookedStays.then(stays => {
-            return stays.map(stay => {
-                let object = { name: '', rate: 0, cost: 0, cont: 0 };
-                stays.map(st => {
-                    if (stay.name === st.name) {
-                        object.rate += st.rate;
-                        object.cont++;
-                    }
-                })
-                object.name = stay.name;
-                object.cost = stay.cost;
-                object.rate = object.rate / object.cont;
-                return object;
-            })
-        }).then(stays => {
-            let unicStays = stays.reduce((allStays, stay) => {
-                const x = allStays.find(item => item.name === stay.name);
-                if (!x) {
-                    return allStays.concat([stay]);
-                } else {
-                    return allStays;
+                if (cities.includes(city)) {
+                    return {
+                        'travel_id': stay.travel_id,
+                        'stay_id': stay.stay_id,
+                        'rate': parseFloat(stay.rate),
+                        'cost': parseFloat(stay.cost),
+                        'name': await getStayName(stay.stay_id),
+                    };
                 }
-            }, []);
-
-            const staysByRate = unicStays.sort((g, z) => z.rate - g.rate);
-            const staysByCost = unicStays.slice().sort((g, z) => g.cost - z.cost);
-            const containerRate = document.querySelector('.data.stays');
-            const listRate = document.createElement('ul');
-
-            staysByRate.slice(0, 8).forEach(stay => {
-                const li = document.createElement('li');
-                li.textContent = `${stay.name.trim()} - ${stay.rate}/5`;
-                listRate.append(li);
             });
 
-            listRate.style.display = 'block';
-            containerRate.append(listRate);
-
-            const containerCost = document.querySelector('.data.rate');
-            const listCost = document.createElement('ul');
-
-            staysByCost.slice(0, 8).forEach(stay => {
-                const li = document.createElement('li');
-                li.textContent = `${stay.name.trim()} - ${stay.cost}€`;
-                listCost.append(li);
+            bookedStays = Promise.all(bookedStays).then(stays => {
+                return stays.sort((a, b) => {
+                    return a.name.toLowerCase().trim().localeCompare(b.name.toLowerCase().trim());
+                });
             });
 
-            listCost.style.display = 'block';
-            containerCost.append(listCost);
-        });
-    } catch (error) {
-        console.log(error);
+            bookedStays.then(stays => {
+                return stays.map(stay => {
+                    let object = { name: '', rate: 0, cost: 0, cont: 0 };
+                    stays.map(st => {
+                        if (stay.name === st.name) {
+                            object.rate += st.rate;
+                            object.cont++;
+                        }
+                    })
+                    object.name = stay.name;
+                    object.cost = stay.cost;
+                    object.rate = object.rate / object.cont;
+                    return object;
+                })
+            }).then(stays => {
+                let unicStays = stays.reduce((allStays, stay) => {
+                    const x = allStays.find(item => item.name === stay.name);
+                    if (!x) {
+                        return allStays.concat([stay]);
+                    } else {
+                        return allStays;
+                    }
+                }, []);
+
+                const staysByRate = unicStays.sort((g, z) => z.rate - g.rate);
+                const staysByCost = unicStays.slice().sort((g, z) => g.cost - z.cost);
+                const containerRate = document.querySelector('.data.stays');
+                const listRate = document.createElement('ul');
+
+                staysByRate.slice(0, 8).forEach(stay => {
+                    const li = document.createElement('li');
+                    li.textContent = `${stay.name.trim()} - ${stay.rate}/5`;
+                    listRate.append(li);
+                });
+
+                listRate.style.display = 'block';
+                containerRate.append(listRate);
+
+                const containerCost = document.querySelector('.data.rate');
+                const listCost = document.createElement('ul');
+
+                staysByCost.slice(0, 8).forEach(stay => {
+                    const li = document.createElement('li');
+                    li.textContent = `${stay.name.trim()} - ${stay.cost}€`;
+                    listCost.append(li);
+                });
+
+                listCost.style.display = 'block';
+                containerCost.append(listCost);
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
