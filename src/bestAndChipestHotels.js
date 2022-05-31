@@ -118,7 +118,7 @@ async function getStayCity(idStay) {
 }
 
 async function getCommunityCities() {
-    const communityId = communityDictinary['catalonia'];
+    const communityId = communityDictinary[window.mapped.location];
     try {
         const responseProvince = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/provinces/read_by_community_id.php?community_id=" + communityId, {
             method: 'GET',
