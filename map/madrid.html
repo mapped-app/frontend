@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <h1>Mapped svg map</h1>
     <nav>
         <ul>
             <li><a id="ES" href="/map/community.html">Community</a></li>
@@ -20,35 +19,94 @@
             <li><a id="ES-VC" href="/map/valencia.html">Province</a></li>
         </ul>
     </nav>
+<!-- Nav bar-->
+<nav class="navbar navbar-expand-md navbar-light br-btm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="../assets/img/logo.png"></a>
+        <button type="button" class="navbar-toggler">
+           <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div id="navMenu" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-md-auto">
+                <li  class="nav-item"><a id="user_name" class="nav-link" href="#"></a><i class="fa-solid fa-user"></i></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <main id="swup" class="transition-fade">
-        <button id="back">Back to communities</button>
-        <div class="container title">Title</div>
-        <div class="container map">
-            <svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M269.999 424.82L280.343 442.448L243.756 447.046L245.097 432.101L269.999 424.82ZM702.345 46L732.803 101.185L769.39 109.424L762.111 141.232L787.78 174.189L773.988 183.962L758.472 245.469L749.277 245.278L760.579 270.187L741.615 279.193L739.891 308.702L719.777 337.827L746.02 341.276L759.238 359.479L754.832 377.108L764.793 382.665L745.254 414.472L782.033 429.61L788.929 412.173L820.919 455.478L833.562 441.873L821.686 464.1L825.9 485.752L853.676 505.68L845.63 531.931L873.406 526.949L902.331 549.368L903.481 605.127L928.575 607.619L943.516 633.869L905.205 754.777L918.422 765.316L955.776 726.035L980.295 823.95L968.227 819.926L963.247 835.447L987 857.865L984.51 875.302L950.987 897.338L925.51 894.655L917.464 874.919L899.841 899.445L857.698 908.26L823.793 882.2L798.699 887.182L788.546 917.649L722.267 907.877L714.796 928.762L673.803 934.511L645.261 953.481L647.176 970.726L582.622 990.27L547.95 1033L509.255 1017.67L505.615 999.276L527.261 988.929L531.476 998.126L535.69 985.48L557.911 985.671L570.937 970.534L567.872 983.947L576.492 983.181L573.044 967.277L593.732 970.726L581.855 959.804L655.797 902.128L664.034 861.698L628.595 835.255L614.42 843.494L596.988 831.806L582.622 843.494L546.8 809.196L529.752 821.651L505.615 798.849L473.434 789.076L462.707 800.381L460.599 782.562L437.421 784.478L419.031 754.203L391.064 742.131L371.717 759.759L348.538 757.268L348.347 742.514L320.571 717.413L313.291 738.874L288.58 735.233L273.639 766.274L244.139 772.406L228.431 763.592L223.259 707.449L209.084 700.743L207.36 723.161L177.094 746.155L176.136 762.825L118.285 792.142L93 778.538L103.727 774.514L98.7468 748.071L122.308 720.862L112.156 682.922L124.032 680.815L137.058 703.808L165.792 700.168L185.522 633.678L244.905 630.421L233.412 616.241L247.587 588.266L240.499 534.805L263.295 512.003L263.103 462.95L291.071 482.687L338.769 466.4L339.343 415.047L392.405 334.761L445.466 342.234L470.177 231.482L495.271 200.632L561.933 174.764L587.027 133.184L623.806 107.891L660.969 59.2212L702.345 46ZM804.637 453.37L801.38 464.483L794.868 460.843L804.637 453.37Z" fill="black"/>
-            </svg>
-            <div class="container btns">
-                <button class="markBtn">Historial</button>
-                <button class="historyBtn">Marcar</button>
+<main id="swup" class="transition-fade"> 
+    <div class="container title">Madrid</div>
+    <div class="container map">
+        <svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M269.999 424.82L280.343 442.448L243.756 447.046L245.097 432.101L269.999 424.82ZM702.345 46L732.803 101.185L769.39 109.424L762.111 141.232L787.78 174.189L773.988 183.962L758.472 245.469L749.277 245.278L760.579 270.187L741.615 279.193L739.891 308.702L719.777 337.827L746.02 341.276L759.238 359.479L754.832 377.108L764.793 382.665L745.254 414.472L782.033 429.61L788.929 412.173L820.919 455.478L833.562 441.873L821.686 464.1L825.9 485.752L853.676 505.68L845.63 531.931L873.406 526.949L902.331 549.368L903.481 605.127L928.575 607.619L943.516 633.869L905.205 754.777L918.422 765.316L955.776 726.035L980.295 823.95L968.227 819.926L963.247 835.447L987 857.865L984.51 875.302L950.987 897.338L925.51 894.655L917.464 874.919L899.841 899.445L857.698 908.26L823.793 882.2L798.699 887.182L788.546 917.649L722.267 907.877L714.796 928.762L673.803 934.511L645.261 953.481L647.176 970.726L582.622 990.27L547.95 1033L509.255 1017.67L505.615 999.276L527.261 988.929L531.476 998.126L535.69 985.48L557.911 985.671L570.937 970.534L567.872 983.947L576.492 983.181L573.044 967.277L593.732 970.726L581.855 959.804L655.797 902.128L664.034 861.698L628.595 835.255L614.42 843.494L596.988 831.806L582.622 843.494L546.8 809.196L529.752 821.651L505.615 798.849L473.434 789.076L462.707 800.381L460.599 782.562L437.421 784.478L419.031 754.203L391.064 742.131L371.717 759.759L348.538 757.268L348.347 742.514L320.571 717.413L313.291 738.874L288.58 735.233L273.639 766.274L244.139 772.406L228.431 763.592L223.259 707.449L209.084 700.743L207.36 723.161L177.094 746.155L176.136 762.825L118.285 792.142L93 778.538L103.727 774.514L98.7468 748.071L122.308 720.862L112.156 682.922L124.032 680.815L137.058 703.808L165.792 700.168L185.522 633.678L244.905 630.421L233.412 616.241L247.587 588.266L240.499 534.805L263.295 512.003L263.103 462.95L291.071 482.687L338.769 466.4L339.343 415.047L392.405 334.761L445.466 342.234L470.177 231.482L495.271 200.632L561.933 174.764L587.027 133.184L623.806 107.891L660.969 59.2212L702.345 46ZM804.637 453.37L801.38 464.483L794.868 460.843L804.637 453.37Z" fill="black"/>
+        </svg>
+
+        <div class="mb-3 col-md-12 container justify-content-end d-flex ">
+          <button class="btn indigo-bg rounded-30 align-content-end text-light m-2">Historial</button>
+          <button class="btn orang-bg rounded-30  m-2"><a class="link-none text-light" href="form-catalonia.html">Marcar</a></button>
+        </div>
+        <div class="mb-3 col-md-12 ">
+        <button id="back" class="btn rounded-30 text-light bg-dark bg-opacity-75">Back to communities</button>
+        </div>
+    </div>
+    <div class="container data sites">
+        Sitios más visitados
+    </div>
+    <div class="container data stays">
+        Estancias/hoteles mejor valoradas
+    </div>
+    <div class="container data rate">
+        Estancias más económicas
+    </div>
+    <div class="container data destiny">
+        Ciudades más visitadas
+    </div>
+</main>
+<!--Footer-->
+<div class="mt-5  ">
+    <footer class="text-center text-lg-start text-dark pt-3 rounded-30 radius-none-bottom" style="background-color: #ECEFF1">
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold"><img src="../assets/img/logo.png"></h6>
+              <p>
+                Aqui explicamos un poco que hacemos
+              </p>
             </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto indigo-bg"
+                  style="width: 60px;  height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-dark">Your Account</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">Help</a>
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto indigo-bg"
+                  style="width: 60px;  height: 2px"
+                  />
+              <p><i class="fas fa-location-arrow mx-1"></i> Barcelona, 08001, ES</p>
+              <p><i class="fa-solid fa-envelope mx-1"></i>info@mapped.com</p>
+              <p><i class="fa-solid fa-phone mx-1"></i> + 34 234 567 88</p>
+              <p><i class="fa-solid fa-phone mx-1"></i> + 34 234 567 89</p>
+            </div>
+          </div>
         </div>
-        <div class="container data sites">
-            Sitios más visitados
-        </div>
-        <div class="container data stays">
-            Estancias/hoteles mejor valoradas
-        </div>
-        <div class="container data rate">
-            Estancias más económicas
-        </div>
-        <div class="container data destiny">
-            Ciudades más visitadas
-        </div>
-    </main>
-
-    <footer>
-        
+      </section>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2022Copyright:
+        <a class="link-none orang-cl regular-text" href="https://mapped.site/"
+           >Mapped.site</a
+          >
+      </div>
     </footer>
 </body>
 

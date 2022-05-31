@@ -3,6 +3,7 @@ import { showCityData } from '../src/city-data.js'
 import { createTravel } from '../src/travel-data.js';
 import { showSites } from '../src/sites-data.js'
 import { getCityId } from '../src/markCommunity.js'
+import { showUserName } from '../src/show-user-name.js'
 import { getBestAndChipestStays } from '../src/bestAndChipestHotels.js'
 const isTravelForm = window.location.pathname.includes('form-catalonia')
 let swup;
@@ -66,6 +67,7 @@ const mount = () => {
         showSites();
         getCityId();
         getBestAndChipestStays();
+        showUserName();
     }
     createTravelEvent();
 }
