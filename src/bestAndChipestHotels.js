@@ -103,7 +103,7 @@ const getBestAndChipestStays = async () => {
                     const span2 = document.createElement('span');
 
                     span1.innerHTML = stay.name;
-                    span2.innerHTML = stay.rate + "/5";
+                    span2.innerHTML = stay.cost + "€";
 
                     div.appendChild(span1);
                     div.appendChild(span2);
