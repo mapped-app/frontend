@@ -130,7 +130,7 @@ async function getCommunityCities() {
         const provinces = await (await responseProvince).json();
         const citiesID = [];
 
-        await provinces.body.map(async function (province) {
+        !!data?.body && await provinces.body.map(async function (province) {
             const responseCities = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_province_id.php?province_id=" + province.province_id, {
                 method: 'GET',
 
