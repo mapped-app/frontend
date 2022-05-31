@@ -16,7 +16,8 @@ async function getCityId() {
         }
     );
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        return
+        //throw new Error(`HTTP error! status: ${response.status}`);
     }
     data = await response.json();
     data.body.forEach(data => getProvinceId(data.city_id));
@@ -32,7 +33,8 @@ async function getProvinceId(id) {
         }
     );
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        //throw new Error(`HTTP error! status: ${response.status}`);
+        return
     }
     data = await response.json();
     getCommunityId(data.province_id);
@@ -47,7 +49,8 @@ async function getCommunityId(id) {
         }
     );
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        //throw new Error(`HTTP error! status: ${response.status}`);
+        return
     }
     data = await response.json();
     markCommunity(data.community_id);
