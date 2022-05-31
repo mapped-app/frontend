@@ -94,7 +94,8 @@ const getBestAndChipestStays = async () => {
                 containerCost.append(listCost);
             });
         } catch (error) {
-            console.log(error);
+            //console.log(error);
+            return
         }
     }
 }
@@ -110,7 +111,8 @@ async function getStayName(idStay) {
 
         return stays.name;
     } catch (error) {
-        console.log(error);
+        //console.log(error);
+        return
     }
 }
 
@@ -126,7 +128,8 @@ async function getStayCity(idStay) {
 
         return parseInt(stays.city_id);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
+        return
     }
 }
 
@@ -164,7 +167,8 @@ async function getCommunityCities() {
             return citiesID;
 
         } catch (error) {
-            console.log(error)
+            //console.log(error)
+            return
         }
     }
 }
