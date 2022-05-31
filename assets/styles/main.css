@@ -11295,7 +11295,7 @@ html.is-animating .transition-swipe {
 }
 
 .sites h4, .sites .h4, .stays h4, .stays .h4, .rate h4, .rate .h4, .destiny h4, .destiny .h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 10px;
   margin-left: 18px;
@@ -11372,6 +11372,8 @@ main {
   grid-area: title;
   border-bottom: 3px solid #4D488C;
   max-width: 100%;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 .form-height {
