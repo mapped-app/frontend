@@ -4,7 +4,8 @@ import { createTravel } from '../src/travel-data.js';
 import { showSites } from '../src/sites-data.js'
 import { getCityId } from '../src/markCommunity.js'
 import { getBestAndChipestStays } from '../src/bestAndChipestHotels.js'
-const isTravelForm = window.location.pathname.includes('form-catalonia')
+const isTravelForm = window.location.pathname.includes('form-catalonia');
+
 let swup;
 if (!isTravelForm) {
     swup = new Swup();
@@ -12,6 +13,18 @@ if (!isTravelForm) {
 
 function setMappedData() {
     window.mapped = new Mapped();
+}
+
+const locationDictionari = {
+    'catalonia' : 'Cataluña',
+    'madrid' : 'Madrid',
+    'valencia': 'Valencia',
+    'spain': 'España',
+}
+
+function setDocumentTitle() {
+    const titleEl = document.querySelector('.title');
+    titleEl.textContent = locationDictionari[window.mapped.location] || 'Mapped';
 }
 
 const openCommunity = (event) => {
@@ -60,8 +73,8 @@ const mount = () => {
     communityEvents();
     buttonEvents();
     setMappedData();
-    
     if (!isTravelForm) {
+        setDocumentTitle();
         showCityData();
         showSites();
         getCityId();
