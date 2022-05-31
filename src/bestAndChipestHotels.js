@@ -70,7 +70,7 @@ const getBestAndChipestStays = async () => {
                 const staysByRate = unicStays.sort((g, z) => z.rate - g.rate);
                 const staysByCost = unicStays.slice().sort((g, z) => g.cost - z.cost);
                 const containerRate = document.querySelector('.data.stays');
-                const listRate = document.createElement('ul');
+                const listRate = document.createElement('ol');
 
                 staysByRate.slice(0, 8).forEach(stay => {
                     const li = document.createElement('li');
@@ -82,7 +82,7 @@ const getBestAndChipestStays = async () => {
                 containerRate.append(listRate);
 
                 const containerCost = document.querySelector('.data.rate');
-                const listCost = document.createElement('ul');
+                const listCost = document.createElement('ol');
 
                 staysByCost.slice(0, 8).forEach(stay => {
                     const li = document.createElement('li');
