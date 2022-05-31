@@ -24,8 +24,8 @@ const getBestAndChipestStays = async () => {
                     };
                 }
                 else {
+                    let city = await getStayCity(stay.stay_id);
                     if (cities.includes(city)) {
-                        let city = await getStayCity(stay.stay_id);
                         return {
                             'travel_id': stay.travel_id,
                             'stay_id': stay.stay_id,
