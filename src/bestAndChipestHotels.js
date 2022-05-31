@@ -38,9 +38,7 @@ const getBestAndChipestStays = async () => {
             });
 
             bookedStays = Promise.all(bookedStays).then(stays => {
-                return stays.sort((a, b) => {
-                    return a.name.toLowerCase().trim().localeCompare(b.name.toLowerCase().trim());
-                });
+                return stays.filter(a => a)
             });
 
             bookedStays.then(stays => {
@@ -117,7 +115,6 @@ const getBestAndChipestStays = async () => {
                 containerCost.append(listCost);
             });
         } catch (error) {
-            //console.log(error);
             return
         }
     }
@@ -134,7 +131,6 @@ async function getStayName(idStay) {
 
         return stays.name;
     } catch (error) {
-        //console.log(error);
         return
     }
 }
@@ -151,7 +147,6 @@ async function getStayCity(idStay) {
 
         return parseInt(stays.city_id);
     } catch (error) {
-        //console.log(error);
         return
     }
 }
@@ -188,9 +183,7 @@ async function getCommunityCities() {
             });
 
             return citiesID;
-
         } catch (error) {
-            //console.log(error)
             return
         }
     }
