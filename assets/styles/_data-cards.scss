@@ -15,7 +15,7 @@
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
-    margin-left: 10px;
+    margin-left: 18px;
   }
 
   ol {
@@ -23,8 +23,10 @@
 
     li {
       font-weight: normal;
+      color: gray;
 
       .div-list {
+        color: black;
         display: flex;
         justify-content: space-between;
 
