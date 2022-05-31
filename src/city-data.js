@@ -1,12 +1,9 @@
 const requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
+    method: 'GET', redirect: 'follow'
 };
 
 const communityDictinary = {
-    'catalonia': 10,
-    'madrid': 11,
-    'valencia': 12,
+    'catalonia': 10, 'madrid': 11, 'valencia': 12,
 }
 
 function getProvincesFromCommunity() {
@@ -43,7 +40,6 @@ function getCitiesFromProvinces(provincesArr) {
 }
 
 
-
 function orderCityVisits(citiesArr) {
     return new Promise((resolve, reject) => {
         fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/travels/read.php", requestOptions)
@@ -73,6 +69,7 @@ function showCityData() {
         .then(citiesArr => orderCityVisits(citiesArr))
         .then(cityArray => {
             const container = document.querySelector('.destiny');
+            const list = document.createElement('ol');
             const fragment = document.createDocumentFragment();
             const cityResult = cityArray.map(async cityData => {
                 const cities = await fetch(`https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_id.php?city_id=${cityData[0]}`, requestOptions)
@@ -82,13 +79,30 @@ function showCityData() {
             })
             Promise.all(cityResult).then(data => {
                 data.forEach((city, index) => {
-                    const itemList = document.createElement('li');
-                    itemList.textContent = `${city.name} - ${cityArray[index][1]}`;
-                    fragment.appendChild(itemList);
+                    let count = cityArray[index][1];
+                    name = city.name;
+                    let itemList = document.createElement('li');
+                    let div = document.createElement('div');
+                    div.classList.add("div-list");
+                    let span1 = document.createElement('span');
+                    let span2 = document.createElement('span');
+                    span1.textContent = name;
+                    span2.textContent = count;
+
+                    // 👇 EYE ICON
+                    let eye = document.createElement('i');
+                    eye.classList.add("fa-solid", "fa-eye");
+                    span2.appendChild(eye);
+
+                    div.appendChild(span1);
+                    div.appendChild(span2);
+                    itemList.appendChild(div);
+                    list.appendChild(itemList);
+                    container.appendChild(list);
                 })
                 container.appendChild(fragment);
             });
         })
 }
 
-export { showCityData };
+export {showCityData};

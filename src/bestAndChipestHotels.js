@@ -13,9 +13,8 @@ const getBestAndChipestStays = async () => {
             });
             let bookedStays = await response.json();
             bookedStays = await bookedStays.body.map(async stay => {
-                let city = await getStayCity(stay.stay_id);
 
-                if (cities.includes(city)) {
+                if (typeof cities === "boolean") {
                     return {
                         'travel_id': stay.travel_id,
                         'stay_id': stay.stay_id,
@@ -23,6 +22,18 @@ const getBestAndChipestStays = async () => {
                         'cost': parseFloat(stay.cost),
                         'name': await getStayName(stay.stay_id),
                     };
+                }
+                else {
+                    let city = await getStayCity(stay.stay_id);
+                    if (cities.includes(city)) {
+                        return {
+                            'travel_id': stay.travel_id,
+                            'stay_id': stay.stay_id,
+                            'rate': parseFloat(stay.rate),
+                            'cost': parseFloat(stay.cost),
+                            'name': await getStayName(stay.stay_id),
+                        };
+                    }
                 }
             });
 
@@ -33,18 +44,21 @@ const getBestAndChipestStays = async () => {
             });
 
             bookedStays.then(stays => {
-                return stays.map(stay => {
+                return stays?.map(stay => {
                     let object = { name: '', rate: 0, cost: 0, cont: 0 };
-                    stays.map(st => {
-                        if (stay.name === st.name) {
-                            object.rate += st.rate;
-                            object.cont++;
-                        }
-                    })
-                    object.name = stay.name;
-                    object.cost = stay.cost;
-                    object.rate = object.rate / object.cont;
-                    return object;
+                    if (!!stay) {
+                        stays?.map(st => {
+                            if (stay.name === st?.name) {
+                                object.rate += st.rate;
+                                object.cont++;
+                            }
+                        })
+                        object.name = stay.name;
+                        object.cost = stay.cost;
+                        object.rate = object.rate / object.cont;
+                        return object;
+                    }
+                    return;
                 })
             }).then(stays => {
                 let unicStays = stays.reduce((allStays, stay) => {
@@ -59,31 +73,52 @@ const getBestAndChipestStays = async () => {
                 const staysByRate = unicStays.sort((g, z) => z.rate - g.rate);
                 const staysByCost = unicStays.slice().sort((g, z) => g.cost - z.cost);
                 const containerRate = document.querySelector('.data.stays');
-                const listRate = document.createElement('ul');
+                const listRate = document.createElement('ol');
 
                 staysByRate.slice(0, 8).forEach(stay => {
                     const li = document.createElement('li');
-                    li.textContent = `${stay.name.trim()} - ${stay.rate}/5`;
-                    listRate.append(li);
+                    const div = document.createElement('div');
+                    div.classList.add('div-list');
+                    const span1 = document.createElement('span');
+                    const span2 = document.createElement('span');
+
+                    span1.innerHTML = stay.name;
+                    span2.innerHTML = stay.rate + "/5";
+
+                    div.appendChild(span1);
+                    div.appendChild(span2);
+                    li.appendChild(div);
+                    listRate.appendChild(li);
                 });
 
                 listRate.style.display = 'block';
                 containerRate.append(listRate);
 
                 const containerCost = document.querySelector('.data.rate');
-                const listCost = document.createElement('ul');
+                const listCost = document.createElement('ol');
 
                 staysByCost.slice(0, 8).forEach(stay => {
                     const li = document.createElement('li');
-                    li.textContent = `${stay.name.trim()} - ${stay.cost}€`;
-                    listCost.append(li);
+                    const div = document.createElement('div');
+                    div.classList.add('div-list');
+                    const span1 = document.createElement('span');
+                    const span2 = document.createElement('span');
+
+                    span1.innerHTML = stay.name;
+                    span2.innerHTML = stay.rate + "/5";
+
+                    div.appendChild(span1);
+                    div.appendChild(span2);
+                    li.appendChild(div);
+                    listCost.appendChild(li);
                 });
 
                 listCost.style.display = 'block';
                 containerCost.append(listCost);
             });
         } catch (error) {
-            console.log(error);
+            //console.log(error);
+            return
         }
     }
 }
@@ -99,7 +134,8 @@ async function getStayName(idStay) {
 
         return stays.name;
     } catch (error) {
-        console.log(error);
+        //console.log(error);
+        return
     }
 }
 
@@ -115,40 +151,48 @@ async function getStayCity(idStay) {
 
         return parseInt(stays.city_id);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
+        return
     }
 }
 
 async function getCommunityCities() {
-    const communityId = communityDictinary[window.mapped.location];
-    try {
-        const responseProvince = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/provinces/read_by_community_id.php?community_id=" + communityId, {
-            method: 'GET',
-
-        });
-
-        const provinces = await (await responseProvince).json();
-        const citiesID = [];
-
-        !!provinces?.body && await provinces.body.map(async function (province) {
-            const responseCities = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_province_id.php?province_id=" + province.province_id, {
+    if (window.mapped.state === "country") {
+        return true;
+    }
+    else {
+        const communityId = communityDictinary[window.mapped.location];
+        try {
+            const responseProvince = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/provinces/read_by_community_id.php?community_id=" + communityId, {
                 method: 'GET',
 
             });
 
-            const data = await (await responseCities).json();
+            const provinces = await (await responseProvince).json();
+            const citiesID = [];
 
-            !!data?.body && await data?.body.map(async function (city) {
-                const temp = await city;
+            !!provinces?.body && await provinces.body.map(async function (province) {
+                const responseCities = fetch("https://mapped-backend-kdjbm.ondigitalocean.app/api/cities/read_by_province_id.php?province_id=" + province.province_id, {
+                    method: 'GET',
 
-                citiesID.push(parseInt(temp.city_id));
+                });
+
+                const data = await (await responseCities).json();
+
+                !!data?.body && await data?.body.map(async function (city) {
+                    const temp = await city;
+
+                    citiesID.push(parseInt(temp.city_id));
+                });
+
             });
 
-        });
+            return citiesID;
 
-        return citiesID;
-    } catch (error) {
-        console.log(error)
+        } catch (error) {
+            //console.log(error)
+            return
+        }
     }
 }
 
