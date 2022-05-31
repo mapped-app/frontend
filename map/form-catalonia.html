@@ -16,12 +16,12 @@
 <body>
   <nav>
     <ul>
-        <li><a id="ES" href="/map/community.html">Community</a></li>
-        <li><a id="ES-CT" href="/map/catalonia.html">Province</a></li>
-        <li><a id="ES-MD" href="/map/madrid.html">Province</a></li>
-        <li><a id="ES-VC" href="/map/valencia.html">Province</a></li>
+      <li><a id="ES" href="/map/community.html">Community</a></li>
+      <li><a id="ES-CT" href="/map/catalonia.html">Province</a></li>
+      <li><a id="ES-MD" href="/map/madrid.html">Province</a></li>
+      <li><a id="ES-VC" href="/map/valencia.html">Province</a></li>
     </ul>
-</nav>
+  </nav>
   <!-- Nav bar-->
   <nav class="navbar navbar-expand-md navbar-light br-btm">
     <div class="container-fluid">
@@ -60,7 +60,7 @@
             </svg>
             <div class="mb-3 col-md-12 ">
               <button id="back" class="btn rounded-30 text-light bg-dark bg-opacity-75">Back to communities</button>
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -190,21 +190,21 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 class="text-uppercase fw-bold"><img src="../assets/img/logo.png"></h6>
               <p>
-                Aqui explicamos un poco que hacemos
+                Mapped es la red social de viajeros más grande del múndo.
               </p>
             </div>
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <h6 class="text-uppercase fw-bold">Links de interés</h6>
               <hr class="mb-4 mt-0 d-inline-block mx-auto indigo-bg" style="width: 60px;  height: 2px" />
               <p>
-                <a href="#!" class="text-dark">Your Account</a>
+                <a href="#!" class="text-dark">Tu cuenta</a>
               </p>
               <p>
-                <a href="#!" class="text-dark">Help</a>
+                <a href="#!" class="text-dark">Ayuda</a>
               </p>
             </div>
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <h6 class="text-uppercase fw-bold">Contacto</h6>
               <hr class="mb-4 mt-0 d-inline-block mx-auto indigo-bg" style="width: 60px;  height: 2px" />
               <p><i class="fas fa-location-arrow mx-1"></i> Barcelona, 08001, ES</p>
               <p><i class="fa-solid fa-envelope mx-1"></i>info@mapped.com</p>
@@ -216,26 +216,28 @@
       </section>
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2022Copyright:
-        <a class="link-none orang-cl regular-text" href="https://mapped.site/">Mapped.com</a>
+        <a class="link-none orang-cl regular-text" href="https://mapped.site/">Mapped.site</a>
       </div>
     </footer>
   </div>
-  <script>
-    function getUserNameById(id) {
-      const url = 'https://mapped-backend-kdjbm.ondigitalocean.app/api/users/read_by_id.php/?user_id=' + id;
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          const userName = data.token;
-          document.querySelector('#user_name').innerHTML = userName;
-          console.log(data.name);
-        })
-        .catch(err => console.log(err))
-    }
-    getUserNameById(14);
-    function showFrom() {
-    }
-  </script>
+</body>
+</div>
+<script>
+  function getUserNameById(id) {
+    const url = 'https://mapped-backend-kdjbm.ondigitalocean.app/api/users/read_by_id.php/?user_id=' + id;
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const userName = data.token;
+        document.querySelector('#user_name').innerHTML = userName;
+        console.log(data.name);
+      })
+      .catch(err => console.log(err))
+  }
+  getUserNameById(14);
+  function showFrom() {
+  }
+</script>
 </body>
 
 </html>
