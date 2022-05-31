@@ -1,12 +1,9 @@
 const requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
+    method: 'GET', redirect: 'follow'
 };
 
 const communityDictinary = {
-    'catalonia': 10,
-    'madrid': 11,
-    'valencia': 12,
+    'catalonia': 10, 'madrid': 11, 'valencia': 12,
 }
 
 function getProvincesFromCommunity() {
@@ -82,28 +79,26 @@ function showCityData() {
             })
             Promise.all(cityResult).then(data => {
                 data.forEach((city, index) => {
-                    if (index < 8) {
-                        let count = cityArray[index][1];
-                        name = city.name;
-                        let itemList = document.createElement('li');
-                        let div = document.createElement('div');
-                        div.classList.add("div-list");
-                        let span1 = document.createElement('span');
-                        let span2 = document.createElement('span');
-                        span1.textContent = name;
-                        span2.textContent = count;
+                    let count = cityArray[index][1];
+                    name = city.name;
+                    let itemList = document.createElement('li');
+                    let div = document.createElement('div');
+                    div.classList.add("div-list");
+                    let span1 = document.createElement('span');
+                    let span2 = document.createElement('span');
+                    span1.textContent = name;
+                    span2.textContent = count;
 
-                        // 👇 EYE ICON
-                        let eye = document.createElement('i');
-                        eye.classList.add("fa-solid", "fa-eye");
-                        span2.appendChild(eye);
+                    // 👇 EYE ICON
+                    let eye = document.createElement('i');
+                    eye.classList.add("fa-solid", "fa-eye");
+                    span2.appendChild(eye);
 
-                        div.appendChild(span1);
-                        div.appendChild(span2);
-                        itemList.appendChild(div);
-                        list.appendChild(itemList);
-                        container.appendChild(list);
-                    }
+                    div.appendChild(span1);
+                    div.appendChild(span2);
+                    itemList.appendChild(div);
+                    list.appendChild(itemList);
+                    container.appendChild(list);
                 })
                 container.appendChild(fragment);
             });
