@@ -56,8 +56,10 @@ async function getCommunityId(id) {
 
 function markCommunity(id) {
     const community = document.querySelector(`svg #${communitiesId[id]}`);
-    community.style.fill = '#626414';
+    if (!!community) {
+        community.style.fill = '#626414';
+    }
 }
 
-export {getCityId}
+export { getCityId }
 
