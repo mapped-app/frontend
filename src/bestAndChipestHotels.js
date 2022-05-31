@@ -44,10 +44,10 @@ const getBestAndChipestStays = async () => {
             });
 
             bookedStays.then(stays => {
-                return stays.map(stay => {
+                return stays?.map(stay => {
                     let object = { name: '', rate: 0, cost: 0, cont: 0 };
                     if (!!stay) {
-                        stays.map(st => {
+                        stays?.map(st => {
                             if (stay.name === st?.name) {
                                 object.rate += st.rate;
                                 object.cont++;
